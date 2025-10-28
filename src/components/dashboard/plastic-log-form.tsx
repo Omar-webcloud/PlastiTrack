@@ -76,16 +76,16 @@ export function PlasticLogForm() {
     <div className="w-full max-w-md mx-auto">
         <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="bg-primary/10 p-6 rounded-2xl space-y-6">
+            <div className="bg-card p-6 rounded-2xl space-y-6">
             <FormField
             control={form.control}
             name="type"
             render={({ field }) => (
                 <FormItem>
-                <FormLabel className="text-primary font-bold">Plastic Type</FormLabel>
+                <FormLabel className="text-card-foreground font-bold">Plastic Type</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                    <SelectTrigger className="bg-white rounded-xl h-14 border-none shadow-sm text-base">
+                    <SelectTrigger className="bg-background rounded-xl h-14 border-none shadow-sm text-base">
                         <SelectValue placeholder="Select plastic type" />
                     </SelectTrigger>
                     </FormControl>
@@ -106,9 +106,9 @@ export function PlasticLogForm() {
                 name="quantity"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel className="text-primary font-bold">Quantity</FormLabel>
+                    <FormLabel className="text-card-foreground font-bold">Quantity</FormLabel>
                     <FormControl>
-                    <Input type="number" placeholder="" {...field} className="bg-white rounded-xl h-14 border-none shadow-sm text-base" />
+                    <Input type="number" placeholder="" {...field} className="bg-background rounded-xl h-14 border-none shadow-sm text-base" />
                     </FormControl>
                     <FormMessage />
                 </FormItem>
@@ -119,9 +119,9 @@ export function PlasticLogForm() {
                 name="weight"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel className="text-primary font-bold">Weight (kg)</FormLabel>
+                    <FormLabel className="text-card-foreground font-bold">Weight (kg)</FormLabel>
                     <FormControl>
-                    <Input type="number" placeholder="" {...field} className="bg-white rounded-xl h-14 border-none shadow-sm text-base" />
+                    <Input type="number" placeholder="" {...field} className="bg-background rounded-xl h-14 border-none shadow-sm text-.base" />
                     </FormControl>
                     <FormMessage />
                 </FormItem>
@@ -129,7 +129,7 @@ export function PlasticLogForm() {
             />
             </div>
             
-            <Button variant="outline" className="w-full h-24 bg-primary/5 border-none flex-col gap-2 text-primary/80 rounded-2xl shadow-sm">
+            <Button variant="outline" className="w-full h-24 bg-card border-none flex-col gap-2 text-card-foreground/80 rounded-2xl shadow-sm">
                 <Camera className="h-6 w-6" />
                 <span>Click to upload proof photo</span>
             </Button>

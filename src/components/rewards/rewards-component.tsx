@@ -13,7 +13,7 @@ export function RewardsComponent() {
         <div className="bg-background min-h-screen">
             <main className='p-6 space-y-6'>
                 <div>
-                    <h1 className="text-3xl font-bold text-primary">Hi {user.name.split(' ')[0]}!</h1>
+                    <h1 className="text-3xl font-bold">Hi {user.name.split(' ')[0]}!</h1>
                     <p className="text-muted-foreground">Let's see what your plastic-free journey has earned</p>
                 </div>
                 <Rewards />

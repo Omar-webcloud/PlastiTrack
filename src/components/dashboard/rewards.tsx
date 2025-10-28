@@ -53,7 +53,7 @@ export function Rewards() {
 
   return (
     <div className="space-y-6">
-      <Card className="relative rounded-2xl p-4 overflow-hidden bg-[#E6F0E4] border-none shadow-md">
+      <Card className="relative rounded-2xl p-4 overflow-hidden bg-card border-none shadow-md">
         <div className="absolute inset-0">
           <Image
             src="https://storage.googleapis.com/aai-web-samples/leaf-pattern.svg"
@@ -65,34 +65,34 @@ export function Rewards() {
         </div>
         <CardContent className="relative flex flex-col justify-between h-32 p-2">
           <div>
-            <p className="text-sm font-semibold text-primary/90">Eco Points</p>
-            <p className="text-4xl font-bold text-primary">{rewardsData.points.toLocaleString()}</p>
+            <p className="text-sm font-semibold text-card-foreground/90">Eco Points</p>
+            <p className="text-4xl font-bold text-card-foreground">{rewardsData.points.toLocaleString()}</p>
           </div>
           <div className="flex justify-end items-center gap-2">
                 <Banknote className="w-6 h-6 text-yellow-500" />
-                <span className="font-semibold text-primary/90">Reward history</span>
+                <span className="font-semibold text-card-foreground/90">Reward history</span>
           </div>
         </CardContent>
       </Card>
 
       <div>
-        <h2 className="text-xl font-bold mb-4 text-primary">Your Badges</h2>
+        <h2 className="text-xl font-bold mb-4 text-card-foreground">Your Badges</h2>
         <div className="grid grid-cols-2 gap-4">
           {rewardsData.badges.map((badge) => (
             <Card
               key={badge.id}
               className={cn(`rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all shadow-md border-none`,
-                badge.unlocked ? "bg-primary/10" : "bg-muted grayscale opacity-60"
+                badge.unlocked ? "bg-card" : "bg-muted grayscale opacity-60"
               )}
             >
-              <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-2", badge.unlocked ? 'bg-white' : 'bg-muted-foreground/20')}>
+              <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-2", badge.unlocked ? 'bg-background' : 'bg-muted-foreground/20')}>
                 <badge.icon
                     className={cn(`h-8 w-8`,
-                    badge.unlocked ? "text-primary" : "text-muted-foreground"
+                    badge.unlocked ? "text-card-foreground" : "text-muted-foreground"
                     )}
                 />
               </div>
-              <h3 className="font-bold text-base text-primary/90">
+              <h3 className="font-bold text-base text-card-foreground/90">
                 {badge.name}
               </h3>
               <p className="text-sm text-muted-foreground">
