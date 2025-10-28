@@ -1,19 +1,14 @@
-'use client';
+
 import { Suspense } from "react";
-import { useSearchParams } from 'next/navigation';
 import { GlobalImpact } from "@/components/dashboard/global-impact";
 import { WeeklyOverview } from "@/components/dashboard/weekly-overview";
 import { WeeklyOverviewSkeleton } from "@/components/dashboard/weekly-overview-skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
-import users from '@/data/users.json';
+import { DashboardHeader } from "@/components/dashboard/dashboard-header";
 
 
 export function DashboardComponent() {
-  const searchParams = useSearchParams();
-  const isGuest = searchParams.get('guest') === 'true';
-  const user = isGuest ? { name: 'Guest' } : users[0];
-
   return (
     <div className="flex flex-col bg-background">
       <main className="flex-1 p-6 space-y-6">
@@ -33,10 +28,7 @@ export function DashboardComponent() {
             </Tabs>
         </div>
 
-        <div>
-            <h1 className="text-3xl font-bold">Welcome, {user.name.split(' ')[0]}!</h1>
-            <p className="text-muted-foreground">Your every small act creates a big change.</p>
-        </div>
+        <DashboardHeader />
         
         <GlobalImpact />
 

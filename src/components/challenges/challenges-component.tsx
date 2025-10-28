@@ -1,15 +1,10 @@
-'use client';
+
 import { ChallengesList } from "@/components/challenges/challenges-list";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
-import { useSearchParams } from 'next/navigation';
-import users from '@/data/users.json';
+import { ChallengesHeader } from "@/components/challenges/challenges-header";
 
 export function ChallengesComponent() {
-  const searchParams = useSearchParams();
-  const isGuest = searchParams.get('guest') === 'true';
-  const user = isGuest ? { name: 'Guest' } : users[0];
-
   return (
     <div className="flex flex-col bg-background">
       <main className="flex-1 p-6 space-y-6">
@@ -35,10 +30,7 @@ export function ChallengesComponent() {
           </Tabs>
         </div>
 
-        <div>
-            <h1 className="text-3xl font-bold">Hi {user.name.split(' ')[0]}!</h1>
-            <p className="text-muted-foreground">Let's make today a plastic free day</p>
-        </div>
+        <ChallengesHeader />
         
         <ChallengesList />
 
