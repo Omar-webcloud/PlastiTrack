@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Home, Map, Trophy, User, Leaf } from "lucide-react";
+import { Home, Map, Trophy, User, Leaf, Award } from "lucide-react";
 
 const navItems = [
   { href: "/dashboard", icon: Home, label: "Home" },
   { href: "/map", icon: Map, label: "Map" },
   { href: "/log", icon: Leaf, label: "Log" },
-  { href: "/rewards", icon: Trophy, label: "Rewards" },
+  { href: "/rewards", icon: Award, label: "Rewards" },
   { href: "/profile", icon: User, label: "Profile" },
 ];
 
