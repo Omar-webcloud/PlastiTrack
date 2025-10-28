@@ -37,8 +37,8 @@ export function BottomNav() {
                     "border border-primary-foreground/20" // 1px subtle border
                   )}
                 >
-                  {/* Reduced icon size from "w-8 h-8" to "w-7 h-7" */}
-                  <item.icon className="w-7 h-7 text-primary-foreground" />
+                  {/* Reduced icon size from "w-8 h-8" to "w-6 h-6" */}
+                  <item.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
               </Link>
             )
