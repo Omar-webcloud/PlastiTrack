@@ -13,7 +13,9 @@ export default function MapPage() {
                     />
                 </div>
             </div>
-            <LocationTracker />
+            <div className="flex-1">
+                <LocationTracker />
+            </div>
         </div>
     )
 }
