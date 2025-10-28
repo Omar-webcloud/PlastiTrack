@@ -18,27 +18,27 @@ export function GlobalImpact() {
   const stats = users[0].stats;
 
   const impactData: ImpactData[] = [
-    {
-      icon: Recycle,
-      value: `${(stats.plasticSaved / 1000).toFixed(2)} kg`,
-      title: "Plastic Saved",
-      bgColor: "bg-card",
-      textColor: "text-primary",
-    },
-    {
-      icon: Globe,
-      value: `${(stats.co2Reduced / 1000).toFixed(2)} kg`,
-      title: "CO₂ Reduced",
-      bgColor: "bg-card",
-      textColor: "text-primary",
-    },
-    {
-      icon: Droplets,
-      value: `${(stats.waterSaved / 1000).toFixed(1)}k L`,
-      title: "Water Saved",
-      bgColor: "bg-card",
-      textColor: "text-primary",
-    },
+  {
+    icon: Recycle,
+    value: "4.7 tons",
+    title: "Plastic Saved",
+    bgColor: "bg-card",
+    textColor: "text-primary",
+  },
+  {
+    icon: Globe,
+    value: "1.8 tons",
+    title: "CO₂ Reduced",
+    bgColor: "bg-card",
+    textColor: "text-primary",
+  },
+  {
+    icon: Droplets,
+    value: "36k L",
+    title: "Water Saved",
+    bgColor: "bg-card",
+    textColor: "text-primary",
+  },
     {
       icon: Users,
       value: `${stats.peopleJoined.toLocaleString()}`,
