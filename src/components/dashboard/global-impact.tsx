@@ -2,7 +2,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { Recycle, Leaf, Droplets, Users } from "lucide-react";
+import { RecycleIcon, GlobeIcon, WaterDropIcon, UsersIconV2 } from "../icons";
 
 type ImpactData = {
   icon: React.ElementType;
@@ -14,48 +14,46 @@ type ImpactData = {
 
 const impactData: ImpactData[] = [
   {
-    icon: Recycle,
+    icon: RecycleIcon,
     value: "4,740 kg",
     title: "Plastic Saved",
-    bgColor: "bg-green-100",
-    textColor: "text-green-800",
+    bgColor: "bg-accent",
+    textColor: "text-accent-foreground",
   },
   {
-    icon: Leaf,
+    icon: GlobeIcon,
     value: "1,835 kg",
     title: "CO₂ Reduced",
-    bgColor: "bg-blue-100",
-    textColor: "text-blue-800",
+    bgColor: "bg-accent",
+    textColor: "text-accent-foreground",
   },
   {
-    icon: Droplets,
-    value: "38,000 L",
+    icon: WaterDropIcon,
+    value: "36,000 L",
     title: "Water Saved",
-    bgColor: "bg-sky-100",
-    textColor: "text-sky-800",
+    bgColor: "bg-accent",
+    textColor: "text-accent-foreground",
   },
   {
-    icon: Users,
+    icon: UsersIconV2,
     value: "6,010",
     title: "Joined the Movement",
-    bgColor: "bg-indigo-100",
-    textColor: "text-indigo-800",
+    bgColor: "bg-accent",
+    textColor: "text-accent-foreground",
   },
 ];
 
 export function GlobalImpact() {
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Our Global Impacts</h2>
-      <div className="grid gap-4 md:grid-cols-2">
+      <h2 className="text-lg font-bold mb-4 text-foreground/80">Our Global Impacts</h2>
+      <div className="grid grid-cols-2 gap-4">
         {impactData.map((item) => (
-          <Card key={item.title} className={`rounded-2xl ${item.bgColor}`}>
-            <CardContent className="p-4 flex items-center gap-4">
-              <div className="p-3 bg-background/50 rounded-full">
-                <item.icon className={`h-6 w-6 ${item.textColor}`} />
-              </div>
+          <Card key={item.title} className={`rounded-2xl ${item.bgColor} shadow-md`}>
+            <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-2">
+                <item.icon className={`h-8 w-8 ${item.textColor}`} />
               <div>
-                <div className={`text-2xl font-bold ${item.textColor}`}>{item.value}</div>
+                <div className={`text-xl font-bold ${item.textColor}`}>{item.value}</div>
                 <p className={`text-sm font-medium ${item.textColor}/80`}>
                   {item.title}
                 </p>

@@ -3,7 +3,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -34,13 +33,13 @@ const chartConfig = {
 
 export function WeeklyOverview() {
   return (
-    <Card className="lg:col-span-5 rounded-2xl shadow-none border-none bg-muted">
+    <Card className="rounded-2xl shadow-md bg-card">
       <CardHeader>
-        <CardTitle>You have saved 13 plastic items today!</CardTitle>
+        <CardTitle className="text-lg text-foreground/80">Weekly Overview</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-8">
+      <CardContent>
         <div>
-          <ChartContainer config={chartConfig} className="h-48 w-full">
+          <ChartContainer config={chartConfig} className="h-40 w-full">
             <BarChart accessibilityLayer data={chartData} margin={{ top: 20, right: 0, left: 0, bottom: 0 }}>
               <CartesianGrid vertical={false} strokeDasharray="3 3" />
               <XAxis
@@ -59,7 +58,7 @@ export function WeeklyOverview() {
                 cursor={false}
                 content={<ChartTooltipContent indicator="dot" />}
               />
-              <Bar dataKey="items" fill="var(--color-items)" radius={[8, 8, 8, 8]} barSize={20} />
+              <Bar dataKey="items" fill="var(--color-items)" radius={[8, 8, 8, 8]} barSize={12} />
             </BarChart>
           </ChartContainer>
         </div>

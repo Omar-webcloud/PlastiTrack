@@ -23,6 +23,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body
         className={cn(
@@ -30,7 +31,7 @@ export default function RootLayout({
         )}
       >
         <div className="relative flex flex-col min-h-screen">
-          <main className="flex-1 pb-20">{children}</main>
+          <main className="flex-1 pb-24">{children}</main>
           <BottomNav />
         </div>
         <Toaster />

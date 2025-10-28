@@ -2,39 +2,37 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Map, PlusSquare, Trophy, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { HomeIcon, MapPinIcon, LeafIcon, AwardIcon, UserIcon } from "./icons";
 
 const navItems = [
-  { href: "/dashboard", icon: Home, label: "Home" },
-  { href: "/map", icon: Map, label: "Map" },
-  { href: "/log", icon: PlusSquare, label: "Log", isCentral: true },
-  { href: "/rewards", icon: Trophy, label: "Rewards" },
-  { href: "/profile", icon: User, label: "Profile" },
+  { href: "/dashboard", icon: HomeIcon, label: "Home" },
+  { href: "/map", icon: MapPinIcon, label: "Map" },
+  { href: "/log", icon: LeafIcon, label: "Log" },
+  { href: "/rewards", icon: AwardIcon, label: "Rewards" },
+  { href: "/profile", icon: UserIcon, label: "Profile" },
 ];
 
 export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-background border-t h-16 z-50">
-      <div className="flex justify-around items-center h-full max-w-lg mx-auto">
+    <div className="fixed bottom-4 left-4 right-4 bg-background/80 backdrop-blur-sm border border-border/20 shadow-lg rounded-full h-16 z-50 max-w-sm mx-auto">
+      <div className="flex justify-around items-center h-full">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = pathname.startsWith(item.href);
           return (
             <Link href={item.href} key={item.href}>
               <div
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1 transition-colors",
-                  isActive ? "text-primary" : "text-muted-foreground",
-                  item.isCentral &&
-                    "bg-primary text-primary-foreground rounded-xl w-14 h-14 -translate-y-4 shadow-lg"
+                  "flex flex-col items-center justify-center gap-1 transition-all",
+                  "text-muted-foreground",
+                  isActive && "text-primary"
                 )}
               >
-                <item.icon className="w-6 h-6" />
-                {!item.isCentral && (
-                  <span className="text-xs">{item.label}</span>
-                )}
+                <div className={cn("p-2 rounded-full transition-colors", isActive && "bg-accent")}>
+                  <item.icon className="w-6 h-6 " />
+                </div>
               </div>
             </Link>
           );
