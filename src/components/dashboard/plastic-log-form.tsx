@@ -3,7 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -22,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
+import { Camera, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { DialogClose } from "../ui/dialog";
 
@@ -73,7 +72,7 @@ export function PlasticLogForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-muted p-6 rounded-2xl">
         <FormField
           control={form.control}
           name="type"
@@ -82,7 +81,7 @@ export function PlasticLogForm() {
               <FormLabel>Plastic Type</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-background">
                     <SelectValue placeholder="Select a type of plastic" />
                   </SelectTrigger>
                 </FormControl>
@@ -98,15 +97,14 @@ export function PlasticLogForm() {
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-2 gap-4">
-          <FormField
+        <FormField
             control={form.control}
             name="quantity"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Quantity</FormLabel>
                 <FormControl>
-                  <Input type="number" placeholder="e.g., 5" {...field} />
+                  <Input type="number" placeholder="e.g., 5" {...field} className="bg-background" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -119,22 +117,22 @@ export function PlasticLogForm() {
               <FormItem>
                 <FormLabel>Weight (kg)</FormLabel>
                 <FormControl>
-                  <Input type="number" placeholder="e.g., 0.5" {...field} />
+                  <Input type="number" placeholder="e.g., 0.5" {...field} className="bg-background" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-        </div>
-        <div className="flex justify-end gap-2">
-           <DialogClose asChild>
-              <Button type="button" variant="secondary">Cancel</Button>
-           </DialogClose>
-           <Button type="submit" disabled={isSubmitting}>
+        
+        <Button variant="outline" className="w-full bg-background/70 border-dashed border-primary/50 text-primary/80">
+            <Camera className="mr-2 h-4 w-4" />
+            Click to upload your photo
+        </Button>
+
+        <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Log Collection
-          </Button>
-        </div>
+            Submit Log
+        </Button>
       </form>
     </Form>
   );

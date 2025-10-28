@@ -5,32 +5,39 @@ import {
   Map,
   AdvancedMarker,
 } from "@vis.gl/react-google-maps";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { MapPin } from "lucide-react";
+import { Input } from "../ui/input";
 
 const mapStyle = [
-  { elementType: "geometry", stylers: [{ color: "#e3e8e4" }] },
-  { elementType: "labels.text.stroke", stylers: [{ color: "#ffffff" }] },
-  { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
+  { elementType: "geometry", stylers: [{ color: "#f5f5f5" }] },
+  { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
+  { elementType: "labels.text.fill", stylers: [{ color: "#616161" }] },
+  { elementType: "labels.text.stroke", stylers: [{ color: "#f5f5f5" }] },
   {
-    featureType: "administrative.locality",
+    featureType: "administrative.land_parcel",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#58665b" }],
+    stylers: [{ color: "#bdbdbd" }],
+  },
+  {
+    featureType: "poi",
+    elementType: "geometry",
+    stylers: [{ color: "#eeeeee" }],
   },
   {
     featureType: "poi",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#58665b" }],
+    stylers: [{ color: "#757575" }],
   },
   {
     featureType: "poi.park",
     elementType: "geometry",
-    stylers: [{ color: "#d5e2d7" }],
+    stylers: [{ color: "#e5e5e5" }],
   },
   {
     featureType: "poi.park",
     elementType: "labels.text.fill",
-    stylers: [{ color: "#6b9a76" }],
+    stylers: [{ color: "#9e9e9e" }],
   },
   {
     featureType: "road",
@@ -38,36 +45,52 @@ const mapStyle = [
     stylers: [{ color: "#ffffff" }],
   },
   {
-    featureType: "road",
-    elementType: "geometry.stroke",
-    stylers: [{ color: "#c9d1cb" }],
+    featureType: "road.arterial",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#757575" }],
   },
   {
     featureType: "road.highway",
     elementType: "geometry",
-    stylers: [{ color: "#d4ac0d" }],
+    stylers: [{ color: "#dadada" }],
   },
   {
     featureType: "road.highway",
-    elementType: "geometry.stroke",
-    stylers: [{ color: "#bda038" }],
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#616161" }],
   },
   {
-    featureType: "transit",
+    featureType: "road.local",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#9e9e9e" }],
+  },
+  {
+    featureType: "transit.line",
     elementType: "geometry",
-    stylers: [{ color: "#d8e5da" }],
+    stylers: [{ color: "#e5e5e5" }],
+  },
+  {
+    featureType: "transit.station",
+    elementType: "geometry",
+    stylers: [{ color: "#eeeeee" }],
   },
   {
     featureType: "water",
     elementType: "geometry",
-    stylers: [{ color: "#a1b8a5" }],
+    stylers: [{ color: "#c9c9c9" }],
+  },
+  {
+    featureType: "water",
+    elementType: "labels.text.fill",
+    stylers: [{ color: "#9e9e9e" }],
   },
 ];
 
 const locations = [
-  { lat: 40.7128, lng: -74.006, type: "collection" },
-  { lat: 40.758, lng: -73.9855, type: "disposal" },
-  { lat: 40.7831, lng: -73.9712, type: "collection" },
+  { lat: 40.7128, lng: -74.006, type: "collection" }, // Red
+  { lat: 40.758, lng: -73.9855, type: "disposal" }, // Yellow
+  { lat: 40.7831, lng: -73.9712, type: "collection" }, // Red
+  { lat: 40.7484, lng: -73.9857, type: "recycling" }, // Blue
 ];
 
 export function LocationTracker() {
@@ -76,11 +99,8 @@ export function LocationTracker() {
 
   if (!apiKey) {
     return (
-      <Card className="lg:col-span-2">
-        <CardHeader>
-          <CardTitle>Location Tracker</CardTitle>
-        </CardHeader>
-        <CardContent className="flex items-center justify-center h-80">
+      <Card className="flex-1 lg:col-span-2">
+        <CardContent className="flex items-center justify-center h-full">
           <p className="text-muted-foreground text-center p-4">
             Google Maps API key is missing.
             <br /> Please add it to your .env.local file.
@@ -91,34 +111,49 @@ export function LocationTracker() {
   }
 
   return (
-    <Card className="lg:col-span-2">
-      <CardHeader>
-        <CardTitle>Location Activity</CardTitle>
-        <CardDescription>Hotspots for collection and disposal.</CardDescription>
-      </CardHeader>
-      <CardContent className="h-[22rem] w-full p-0 rounded-b-lg overflow-hidden">
-        <APIProvider apiKey={apiKey}>
-          <Map
-            center={position}
-            zoom={12}
-            gestureHandling={"greedy"}
-            disableDefaultUI={true}
-            styles={mapStyle}
-          >
-            {locations.map((loc, index) => (
-              <AdvancedMarker key={index} position={loc}>
-                <MapPin
-                  className={
-                    loc.type === "collection"
-                      ? "text-primary"
-                      : "text-accent"
-                  }
-                />
-              </AdvancedMarker>
-            ))}
-          </Map>
-        </APIProvider>
-      </CardContent>
-    </Card>
+    <div className="flex-1 flex flex-col relative">
+      <div className="absolute top-4 left-4 right-4 z-10">
+        <Input placeholder="Search location" className="shadow-md" />
+      </div>
+      <APIProvider apiKey={apiKey}>
+        <Map
+          defaultCenter={position}
+          defaultZoom={12}
+          gestureHandling={"greedy"}
+          disableDefaultUI={true}
+          styles={mapStyle}
+          className="flex-1"
+        >
+          {locations.map((loc, index) => (
+            <AdvancedMarker key={index} position={loc}>
+              <MapPin
+                className={
+                  loc.type === "collection"
+                    ? "text-red-500"
+                    : loc.type === "disposal"
+                    ? "text-yellow-500"
+                    : "text-blue-500"
+                }
+                size={32}
+                fill="currentColor"
+              />
+            </AdvancedMarker>
+          ))}
+        </Map>
+      </APIProvider>
+      <div className="p-4 border-t bg-background">
+        <h3 className="font-bold mb-2">Every pin you visit saves plastic</h3>
+        <div className="flex items-center gap-4 text-sm">
+            <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-blue-500" />
+                <span>Recycling</span>
+            </div>
+            <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                <span>Disposal</span>
+            </div>
+        </div>
+      </div>
+    </div>
   );
 }

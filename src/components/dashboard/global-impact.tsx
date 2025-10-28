@@ -1,57 +1,65 @@
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
-import { Recycle, Leaf, Droplets } from "lucide-react";
+import { Recycle, Leaf, Droplets, Users } from "lucide-react";
 
 type ImpactData = {
   icon: React.ElementType;
   value: string;
   title: string;
-  description: string;
+  bgColor: string;
+  textColor: string;
 };
 
 const impactData: ImpactData[] = [
   {
     icon: Recycle,
-    value: "1,234 kg",
+    value: "4,740 kg",
     title: "Plastic Saved",
-    description: "Total plastic diverted from the environment",
+    bgColor: "bg-green-100",
+    textColor: "text-green-800",
   },
   {
     icon: Leaf,
-    value: "3,085 kg",
+    value: "1,835 kg",
     title: "CO₂ Reduced",
-    description: "Estimated carbon footprint reduction",
+    bgColor: "bg-blue-100",
+    textColor: "text-blue-800",
   },
   {
     icon: Droplets,
-    value: "2.4M liters",
-    title: "Water Conserved",
-    description: "Equivalent water saved from production",
+    value: "38,000 L",
+    title: "Water Saved",
+    bgColor: "bg-sky-100",
+    textColor: "text-sky-800",
+  },
+  {
+    icon: Users,
+    value: "6,010",
+    title: "Joined the Movement",
+    bgColor: "bg-indigo-100",
+    textColor: "text-indigo-800",
   },
 ];
 
 export function GlobalImpact() {
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-4">Global Impact</h2>
-      <div className="grid gap-6 md:grid-cols-3">
+      <h2 className="text-xl font-bold mb-4">Our Global Impacts</h2>
+      <div className="grid gap-4 md:grid-cols-2">
         {impactData.map((item) => (
-          <Card key={item.title}>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                {item.title}
-              </CardTitle>
-              <item.icon className="h-5 w-5 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-3xl font-bold text-primary">{item.value}</div>
-              <p className="text-xs text-muted-foreground pt-1">
-                {item.description}
-              </p>
+          <Card key={item.title} className={`rounded-2xl ${item.bgColor}`}>
+            <CardContent className="p-4 flex items-center gap-4">
+              <div className="p-3 bg-background/50 rounded-full">
+                <item.icon className={`h-6 w-6 ${item.textColor}`} />
+              </div>
+              <div>
+                <div className={`text-2xl font-bold ${item.textColor}`}>{item.value}</div>
+                <p className={`text-sm font-medium ${item.textColor}/80`}>
+                  {item.title}
+                </p>
+              </div>
             </CardContent>
           </Card>
         ))}

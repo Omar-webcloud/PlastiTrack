@@ -1,10 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import {
-  weeklyPlasticReductionTips,
-  type WeeklyPlasticReductionTipsOutput,
-} from "@/ai/flows/weekly-plastic-reduction-tips";
 import {
   Card,
   CardContent,
@@ -12,12 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import {
   ChartContainer,
@@ -25,66 +14,35 @@ import {
   ChartTooltipContent,
   type ChartConfig
 } from "@/components/ui/chart";
-import { Lightbulb, UtensilsCrossed } from "lucide-react";
-import { WeeklyOverviewSkeleton } from "./weekly-overview-skeleton";
 
 const chartData = [
-  { day: "Mon", kg: 1.2 },
-  { day: "Tue", kg: 0.8 },
-  { day: "Wed", kg: 2.1 },
-  { day: "Thu", kg: 0.5 },
-  { day: "Fri", kg: 1.5 },
-  { day: "Sat", kg: 3.2 },
-  { day: "Sun", kg: 2.5 },
+  { day: "Mon", items: 5 },
+  { day: "Tue", items: 8 },
+  { day: "Wed", items: 12 },
+  { day: "Thu", items: 7 },
+  { day: "Fri", items: 10 },
+  { day: "Sat", items: 13 },
+  { day: "Sun", items: 9 },
 ];
 
 const chartConfig = {
-  kg: {
-    label: "kg",
+  items: {
+    label: "Items",
     color: "hsl(var(--primary))",
   },
 } satisfies ChartConfig;
 
 export function WeeklyOverview() {
-  const [data, setData] = useState<WeeklyPlasticReductionTipsOutput | null>(
-    null
-  );
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setLoading(true);
-        setError(null);
-        const result = await weeklyPlasticReductionTips({});
-        setData(result);
-      } catch (e) {
-        setError("Failed to load AI tips. Please try again later.");
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <WeeklyOverviewSkeleton />;
-  }
-
   return (
-    <Card className="lg:col-span-3">
+    <Card className="lg:col-span-5 rounded-2xl shadow-none border-none bg-muted">
       <CardHeader>
-        <CardTitle>Weekly Report</CardTitle>
-        <CardDescription>Your plastic collection stats and AI-powered tips for this week.</CardDescription>
+        <CardTitle>You have saved 13 plastic items today!</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
         <div>
-          <h3 className="text-md font-semibold mb-2">Your Collection (kg)</h3>
           <ChartContainer config={chartConfig} className="h-48 w-full">
-            <BarChart accessibilityLayer data={chartData} margin={{ top: 20, right: 20, left: 0, bottom: 0 }}>
-              <CartesianGrid vertical={false} />
+            <BarChart accessibilityLayer data={chartData} margin={{ top: 20, right: 0, left: 0, bottom: 0 }}>
+              <CartesianGrid vertical={false} strokeDasharray="3 3" />
               <XAxis
                 dataKey="day"
                 tickLine={false}
@@ -95,43 +53,16 @@ export function WeeklyOverview() {
                 tickLine={false}
                 axisLine={false}
                 tickMargin={10}
+                hide
                 />
               <ChartTooltip
                 cursor={false}
                 content={<ChartTooltipContent indicator="dot" />}
               />
-              <Bar dataKey="kg" fill="var(--color-kg)" radius={8} />
+              <Bar dataKey="items" fill="var(--color-items)" radius={[8, 8, 8, 8]} barSize={20} />
             </BarChart>
           </ChartContainer>
         </div>
-
-        {error && <p className="text-destructive text-sm">{error}</p>}
-        
-        {data && (
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-md font-semibold mb-2 flex items-center gap-2">
-                <Lightbulb className="text-accent" />
-                AI-Powered Reduction Tips
-              </h3>
-              <Accordion type="single" collapsible className="w-full">
-                {data.tips.map((tip, index) => (
-                  <AccordionItem value={`item-${index}`} key={index}>
-                    <AccordionTrigger>{`Tip #${index + 1}`}</AccordionTrigger>
-                    <AccordionContent>{tip.substring(tip.indexOf('.') + 2)}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-            <div>
-                <h3 className="text-md font-semibold mb-2 flex items-center gap-2">
-                    <UtensilsCrossed className="text-primary" />
-                    This Week's Low-Plastic Recipe
-                </h3>
-                <p className="text-sm text-muted-foreground">{data.recipeRecommendation}</p>
-            </div>
-          </div>
-        )}
       </CardContent>
     </Card>
   );

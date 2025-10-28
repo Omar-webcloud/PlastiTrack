@@ -5,51 +5,41 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  BronzeLeaf,
-  GoldenSprout,
-  LockedBadge,
-  SilverDrop,
-} from "../icons";
-import { cn } from "@/lib/utils";
+import { EcoHeroBadge, PlanetProtectorBadge } from "../icons";
+import { Droplets, Recycle, Trophy } from "lucide-react";
+import Image from "next/image";
 
 const rewardsData = {
-  points: 780,
+  points: 1800,
   badges: [
     {
-      id: "bronze-leaf",
-      name: "Bronze Leaf",
-      description: "Collect 10kg of plastic",
-      icon: BronzeLeaf,
+      id: "plastic-saver",
+      name: "Plastic Saver",
+      description: "Earn 1,200 points",
+      icon: Trophy,
       unlocked: true,
     },
     {
-      id: "silver-drop",
-      name: "Silver Drop",
-      description: "Collect 50kg of plastic",
-      icon: SilverDrop,
+      id: "water-warrior",
+      name: "Water Warrior",
+      description: "Earn 2,500 points",
+      icon: Droplets,
       unlocked: true,
     },
     {
-      id: "golden-sprout",
-      name: "Golden Sprout",
-      description: "Collect 100kg of plastic",
-      icon: GoldenSprout,
-      unlocked: false,
+      id: "eco-hero",
+      name: "Eco Hero",
+      description: "Earn 5,000 points",
+      icon: EcoHeroBadge,
+      unlocked: true,
     },
     {
-      id: "recycler-pro",
-      name: "Recycler Pro",
-      description: "Log 50 entries",
-      icon: LockedBadge,
-      unlocked: false,
-    },
-    {
-      id: "community-hero",
-      name: "Community Hero",
-      description: "Join 3 clean-up events",
-      icon: LockedBadge,
+      id: "planet-protector",
+      name: "Planet Protector",
+      description: "Earn 10,000 points",
+      icon: PlanetProtectorBadge,
       unlocked: false,
     },
   ],
@@ -57,45 +47,54 @@ const rewardsData = {
 
 export function Rewards() {
   return (
-    <div>
-       <h2 className="text-xl font-semibold mb-4">Your Rewards</h2>
-      <Card>
-        <CardHeader className="flex-row items-center justify-between">
+    <div className="p-4 space-y-6">
+      <div className="relative rounded-2xl p-4 overflow-hidden bg-green-100/50">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1552538633-0493b9e46633?w=800&q=80"
+            alt="leaf pattern"
+            fill
+            className="object-cover opacity-20"
+          />
+        </div>
+        <div className="relative flex justify-between items-center">
           <div>
-            <CardTitle>Points & Badges</CardTitle>
-            <CardDescription>
-              Earn rewards for your environmental efforts.
-            </CardDescription>
+            <p className="text-sm text-primary/80">Eco Credits</p>
+            <p className="text-3xl font-bold text-primary">{rewardsData.points.toLocaleString()}</p>
           </div>
-          <Badge variant="outline" className="text-lg py-2 px-4 bg-accent/20 border-accent">
-            <span className="font-bold text-accent-foreground mr-2">{rewardsData.points}</span>
-            <span className="text-muted-foreground">Points</span>
+          <Badge className="bg-yellow-400 text-yellow-900 hover:bg-yellow-400/90">
+            <Trophy className="w-4 h-4 mr-2" />
+            Reward History
           </Badge>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
-            {rewardsData.badges.map((badge) => (
-              <div
-                key={badge.id}
-                className="flex flex-col items-center gap-2"
-              >
-                <div
-                  className={cn(
-                    "transition-all",
-                    !badge.unlocked && "filter grayscale"
-                  )}
-                >
-                  <badge.icon className="h-20 w-20" />
-                </div>
-                <h3 className="font-semibold text-sm">{badge.name}</h3>
-                <p className="text-xs text-muted-foreground">
-                  {badge.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+
+      <div>
+        <h2 className="text-xl font-bold mb-4">Your Badges</h2>
+        <div className="grid grid-cols-2 gap-4">
+          {rewardsData.badges.map((badge) => (
+            <Card
+              key={badge.id}
+              className={`rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all ${
+                badge.unlocked ? "bg-muted" : "bg-gray-100 grayscale"
+              }`}
+            >
+              <badge.icon
+                className={`h-12 w-12 mb-2 ${
+                  badge.unlocked ? "text-primary" : "text-gray-400"
+                }`}
+              />
+              <h3 className="font-bold text-sm text-foreground/90">
+                {badge.name}
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                {badge.description}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </div>
+      <Button size="lg" className="w-full">Redeem Points</Button>
     </div>
   );
 }
