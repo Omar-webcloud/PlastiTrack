@@ -18,7 +18,7 @@ export default function DashboardPage() {
                     <Link href="/challenges" className="w-full h-full">
                         <TabsTrigger value="challenges" className="rounded-full w-full">Challenges</TabsTrigger>
                     </Link>
-                    <Link href="/dashboard" className="w-full h-full">
+                    <Link href="/impacts" className="w-full h-full">
                         <TabsTrigger value="impacts" className="rounded-full w-full">Impacts</TabsTrigger>
                     </Link>
                 </TabsList>

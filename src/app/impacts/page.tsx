@@ -1,13 +1,14 @@
-import { ChallengesList } from "@/components/challenges/challenges-list";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { WeeklyOverview } from "@/components/dashboard/weekly-overview";
+import { ImpactStats } from "@/components/impact/impact-stats";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 
-export default function ChallengesPage() {
+export default function ImpactsPage() {
   return (
     <div className="flex flex-col bg-background">
       <main className="flex-1 p-6 space-y-6">
         <div className="flex justify-center">
-          <Tabs defaultValue="challenges" className="w-full max-w-sm">
+          <Tabs defaultValue="impacts" className="w-full max-w-sm">
             <TabsList className="grid w-full grid-cols-3 bg-muted rounded-full">
               <Link href="/dashboard" className="w-full h-full">
                 <TabsTrigger value="insights" className="rounded-full w-full">
@@ -28,13 +29,14 @@ export default function ChallengesPage() {
           </Tabs>
         </div>
 
-        <div>
-            <h1 className="text-3xl font-bold">Hi Sarah!</h1>
-            <p className="text-muted-foreground">Let's make today a plastic free day</p>
+        <div className="text-center">
+            <h1 className="text-3xl font-bold">You have saved 13 plastic items today!</h1>
         </div>
-        
-        <ChallengesList />
 
+        <WeeklyOverview />
+        
+        <ImpactStats />
+        
       </main>
     </div>
   );

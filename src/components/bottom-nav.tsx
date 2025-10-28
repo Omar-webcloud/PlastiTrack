@@ -19,7 +19,7 @@ export function BottomNav() {
 
   const getNavItems = () => {
     // A bit of a hack to show the challenges tab as active on the dashboard.
-    if (pathname === '/dashboard' || pathname === '/challenges') {
+    if (pathname === '/dashboard' || pathname === '/challenges' || pathname === '/impacts') {
       return [
         { href: "/dashboard", icon: HomeIcon, label: "Home" },
         { href: "/map", icon: MapPinIcon, label: "Map" },
@@ -42,7 +42,8 @@ export function BottomNav() {
     <div className="fixed bottom-4 left-4 right-4 bg-background/80 backdrop-blur-sm border border-border/20 shadow-lg rounded-full h-16 z-50 max-w-sm mx-auto">
       <div className="flex justify-around items-center h-full">
         {navItems.map((item) => {
-          const isActive = pathname === item.href || (item.href === '/dashboard' && pathname === '/challenges');
+          const isActive = pathname === item.href || 
+                           (item.href === '/dashboard' && (pathname === '/challenges' || pathname === '/impacts'));
           return (
             <Link href={item.href} key={item.href}>
               <div
