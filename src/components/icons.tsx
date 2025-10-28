@@ -1,4 +1,18 @@
 import type { SVGProps } from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+export function PlastiTrackPngLogo({ className }: { className?: string }) {
+  return (
+    <Image
+      src="https://storage.googleapis.com/aai-web-samples/logo-ad8a4362.png"
+      alt="PlastiTrack Logo"
+      width={164}
+      height={164}
+      className={cn(className)}
+    />
+  );
+}
 
 export function PlastiTrackLogo(props: SVGProps<SVGSVGElement>) {
   return (
