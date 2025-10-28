@@ -6,83 +6,187 @@ import {
   AdvancedMarker,
 } from "@vis.gl/react-google-maps";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin } from "lucide-react";
-import { Input } from "../ui/input";
+import { Button } from "@/components/ui/button";
+import { MapPin, Plus, Share, Diamond } from "lucide-react";
 import locations from '@/data/map.json';
+import { EcoShopIcon, RefillIcon, RecycleIconV2 } from "../icons";
 
 const mapStyle = [
-  { elementType: "geometry", stylers: [{ color: "#E3E8E4" }] },
-  { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-  { elementType: "labels.text.fill", stylers: [{ color: "#386641" }] },
-  { elementType: "labels.text.stroke", stylers: [{ color: "#f5f5f5" }] },
   {
-    featureType: "administrative.land_parcel",
-    stylers: [{ visibility: "off" }],
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
   },
   {
-    featureType: "poi",
-    elementType: "geometry",
-    stylers: [{ color: "#d5e0d5" }],
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
   },
   {
-    featureType: "poi",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#386641" }],
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
   },
   {
-    featureType: "poi.park",
-    elementType: "geometry",
-    stylers: [{ color: "#c8d7c8" }],
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+    ]
   },
   {
-    featureType: "poi.park",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#386641" }],
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
   },
   {
-    featureType: "road",
-    elementType: "geometry",
-    stylers: [{ color: "#ffffff" }],
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
   },
   {
-    featureType: "road.arterial",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#757575" }],
+    "featureType": "poi",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
   },
   {
-    featureType: "road.highway",
-    elementType: "geometry",
-    stylers: [{ color: "#dadada" }],
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
   },
   {
-    featureType: "road.highway",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#616161" }],
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
   },
   {
-    featureType: "road.local",
-    stylers: [{ visibility: "off" }],
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
   },
   {
-    featureType: "transit.line",
-    elementType: "geometry",
-    stylers: [{ color: "#e5e5e5" }],
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
   },
   {
-    featureType: "transit.station",
-    elementType: "geometry",
-    stylers: [{ color: "#eeeeee" }],
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#ffffff"
+      }
+    ]
   },
   {
-    featureType: "water",
-    elementType: "geometry",
-    stylers: [{ color: "#a8bba9" }],
+    "featureType": "road.arterial",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#757575"
+      }
+    ]
   },
   {
-    featureType: "water",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#9e9e9e" }],
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#dadada"
+      }
+    ]
   },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#616161"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.line",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+    ]
+  }
 ];
 
 export function LocationTracker() {
@@ -102,11 +206,11 @@ export function LocationTracker() {
     );
   }
 
-  const getColor = (type: string) => {
+  const getPinColor = (type: string) => {
     switch (type) {
-      case "Eco shop": return "text-green-500";
+      case "Eco shop": return "text-blue-500";
       case "Recycling station": return "text-yellow-500";
-      case "Recycle bin": return "text-blue-500";
+      case "Recycle bin": return "text-red-500";
       default: return "text-gray-500";
     }
   }
@@ -114,9 +218,6 @@ export function LocationTracker() {
 
   return (
     <div className="flex-1 flex flex-col relative">
-      <div className="absolute top-4 left-4 right-4 z-10">
-        <Input placeholder="Search location" className="shadow-md bg-card" />
-      </div>
       <APIProvider apiKey={apiKey}>
         <Map
           defaultCenter={position}
@@ -130,7 +231,7 @@ export function LocationTracker() {
           {locations.map((loc, index) => (
             <AdvancedMarker key={index} position={{lat: loc.lat, lng: loc.lng}}>
               <MapPin
-                className={getColor(loc.type)}
+                className={getPinColor(loc.type)}
                 size={32}
                 fill="currentColor"
               />
@@ -138,21 +239,44 @@ export function LocationTracker() {
           ))}
         </Map>
       </APIProvider>
-      <div className="p-4 border-t bg-card">
-        <h3 className="font-bold mb-2">Every pin you visit saves plastic</h3>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span>Eco Shop</span>
+      <div className="p-4 bg-background/90 backdrop-blur-sm rounded-t-3xl shadow-lg -mt-8">
+        <h3 className="font-bold mb-3 text-lg text-primary">Every pin you visit saves plastic</h3>
+        <div className="flex items-center gap-2 text-sm mb-4">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-800">
+                <EcoShopIcon className="w-4 h-4" />
+                <span className="font-semibold">Eco shop</span>
             </div>
-            <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <span>Recycling Station</span>
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-100 text-yellow-800">
+                <RefillIcon className="w-4 h-4" />
+                <span className="font-semibold">Refill</span>
             </div>
-            <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-blue-500" />
-                <span>Recycle Bin</span>
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-red-800">
+                <RecycleIconV2 className="w-4 h-4" />
+                <span className="font-semibold">Recycle</span>
             </div>
+        </div>
+
+        <div>
+            <div className="flex items-center">
+                <h4 className="font-bold text-primary">Eco refill station</h4>
+                <Diamond className="w-3 h-3 text-blue-400 fill-blue-400 ml-2" />
+            </div>
+            <p className="text-muted-foreground text-sm">~1.2 km away</p>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2 text-center mt-4">
+            <Button variant="ghost" className="flex flex-col h-auto rounded-xl bg-muted py-2">
+                <MapPin className="w-6 h-6 text-primary" />
+                <span className="text-xs text-primary font-semibold">Explore</span>
+            </Button>
+            <Button variant="ghost" className="flex flex-col h-auto rounded-xl bg-muted py-2">
+                <Share className="w-6 h-6 text-muted-foreground" />
+                <span className="text-xs text-muted-foreground font-semibold">Get direction</span>
+            </Button>
+            <Button variant="ghost" className="flex flex-col h-auto rounded-xl bg-muted py-2">
+                <Plus className="w-6 h-6 text-muted-foreground" />
+                <span className="text-xs text-muted-foreground font-semibold">Add location</span>
+            </Button>
         </div>
       </div>
     </div>
