@@ -32,13 +32,12 @@ export function BottomNav() {
               <Link href={item.href} key={item.href} className="-translate-y-8">
                 <div
                   className={cn(
-                    // Added subtle border and kept other styles
-                    "flex items-center justify-center w-20 h-20 bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
-                    "border border-primary-foreground/20" // 1px subtle border
+                    // Changed w-20 h-20 to w-[4.5rem] h-[4.5rem] (72px) for a subtle reduction
+                    "flex items-center justify-center w-[4.5rem] h-[4.5rem] bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
+                    "border border-primary-foreground/20" 
                   )}
                 >
-                  {/* Reduced icon size from "w-8 h-8" to "w-6 h-6" */}
-                  <item.icon className="w-6 h-6 text-primary-foreground" />
+                  <item.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
               </Link>
             )
