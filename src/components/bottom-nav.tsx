@@ -33,7 +33,7 @@ export function BottomNav() {
                 <div
                   className={cn(
                     // Added subtle border and kept other styles
-                    "flex items-center justify-center w-18 h-18 bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
+                    "flex items-center justify-center w-19 h-19 bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
                     "border border-primary-foreground/20" // 1px subtle border
                   )}
                 >
