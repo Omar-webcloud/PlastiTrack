@@ -1,9 +1,13 @@
 import { LocationTracker } from "@/components/dashboard/location-tracker";
 import { Search } from "lucide-react";
+import MapIllustration from "@/components/map/map-illustration";
+import { Button } from "@/components/ui/button";
+import { MapPin } from "lucide-react";
 
 export default function MapPage() {
     return (
         <div className="flex flex-col h-screen bg-background">
+            {/* Search Bar */}
             <div className="absolute top-4 left-4 right-4 z-10 px-2">
                 <div className="relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
@@ -13,9 +17,43 @@ export default function MapPage() {
                     />
                 </div>
             </div>
+
+            {/* Map Illustration */}
+            <MapIllustration />
+
+            {/* Location Button */}
+            <div className="absolute bottom-24 right-4 z-10">
+                <Button
+                    size="icon"
+                    variant="secondary"
+                    className="h-12 w-12 rounded-full shadow-md bg-card hover:bg-card/90"
+                >
+                    <MapPin className="h-6 w-6" />
+                </Button>
+            </div>
+
+            {/* Map Container */}
             <div className="flex-1">
                 <LocationTracker />
             </div>
+
+            {/* Legend */}
+            <div className="absolute bottom-4 left-4 z-10 bg-card/80 backdrop-blur-sm p-3 rounded-lg shadow-md">
+                <div className="flex gap-4 text-xs">
+                    <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 rounded-full bg-[#8BC34A]" />
+                        <span>Eco Shop</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 rounded-full bg-[#03A9F4]" />
+                        <span>Recycling Station</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 rounded-full bg-[#795548]" />
+                        <span>Recycle Bin</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    )
+    );
 }

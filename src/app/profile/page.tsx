@@ -1,68 +1,56 @@
-'use client';
-import { useSearchParams } from 'next/navigation';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import Image from "next/image";
 import { Settings, MapPin } from "lucide-react";
-import users from '@/data/users.json';
-import { placeholderImages } from '@/lib/placeholder-images';
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 
 export default function ProfilePage() {
-  const searchParams = useSearchParams();
-  const isGuest = searchParams.get('guest') === 'true';
-  const user = isGuest ? { name: 'Guest', ecoPoints: 0, location: 'Unknown' } : { ...users[0], location: 'Chittagong' };
-  const profileImage = placeholderImages.find(p => p.id === 'user-avatar');
-
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <div className="relative bg-muted h-48 rounded-b-[40px]">
-        <div className="absolute top-4 right-4">
-            <Button variant="ghost" size="icon">
-                <Settings className="w-6 h-6 text-foreground/60"/>
-            </Button>
+    <div className="flex flex-col min-h-screen bg-background p-6">
+      {/* Settings Icon */}
+      <div className="flex justify-end mb-8">
+        <Settings className="h-6 w-6 text-muted-foreground" />
+      </div>
+
+      {/* Profile Info */}
+      <div className="flex flex-col items-center space-y-4 mb-8">
+        <div className="relative w-24 h-24">
+          <div className="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center">
+            <span className="text-4xl font-bold text-primary">SA</span>
+          </div>
         </div>
-        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
-          <div className="bg-card p-2 rounded-3xl shadow-lg">
-            <Avatar className="w-28 h-28 rounded-2xl">
-              {profileImage && !isGuest ? (
-                <AvatarImage src={profileImage.imageUrl} alt={user.name} data-ai-hint={profileImage.imageHint} className="rounded-xl" />
-              ) : (
-                <AvatarFallback className="text-4xl bg-card rounded-xl text-primary font-bold">
-                  {user.name.split(' ').map(n => n[0]).join('') || 'G'}
-                </AvatarFallback>
-              )}
-            </Avatar>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-primary mb-1">Sarah Ahmed</h1>
+          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+            <MapPin className="h-4 w-4" />
+            <span>Chittagong</span>
+          </div>
+          <div className="flex items-center gap-2 justify-center mt-2">
+            <span role="img" aria-label="medal" className="text-xl">🏅</span>
+            <span className="text-primary">Eco Hero</span>
           </div>
         </div>
       </div>
-      <div className="flex-grow bg-background pt-20 text-center">
-        <h1 className="text-3xl font-bold text-primary">{user.name}</h1>
-        <div className="flex items-center justify-center gap-1 mt-1">
-            <span className="text-yellow-500">🏅</span>
-            <p className="text-primary font-semibold">Eco Hero</p>
+
+      {/* Settings List */}
+      <div className="space-y-4 mt-4">
+        <div className="flex items-center justify-between p-4 bg-card rounded-2xl shadow-sm">
+          <span>Dark Mode</span>
+          <Switch />
         </div>
-        <div className="flex items-center justify-center gap-1 mt-1">
-            <MapPin className="w-4 h-4 text-muted-foreground" />
-            <p className="text-sm text-muted-foreground">{user.location}</p>
-        </div>
-      </div>
-      <div className="p-6">
-        <Card className="rounded-3xl shadow-lg border-none">
-            <CardContent className="p-4 space-y-3">
-                <div className="flex items-center justify-between p-3 bg-muted/50 rounded-2xl">
-                    <Label htmlFor="dark-mode" className="font-medium text-foreground/80">Dark Mode</Label>
-                    <Switch id="dark-mode" />
-                </div>
-                <Button size="lg" className="w-full h-14 bg-primary text-primary-foreground text-base">
-                    Log Out
-                </Button>
-                <Button variant="outline" size="lg" className="w-full h-14 text-muted-foreground bg-muted/50 border-none text-base">
-                    Delete Account
-                </Button>
-            </CardContent>
-        </Card>
+        
+        <Button 
+          variant="default" 
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-2xl h-12"
+        >
+          Log Out
+        </Button>
+        
+        <Button 
+          variant="outline" 
+          className="w-full border-none bg-card hover:bg-card/90 rounded-2xl h-12"
+        >
+          Delete Account
+        </Button>
       </div>
     </div>
   );

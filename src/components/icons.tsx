@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export function PlastiTrackPngLogo({ className }: { className?: string }) {
   return (
     <Image
-      src="https://storage.googleapis.com/aai-web-samples/logo-ad8a4362.png"
+      src= "/logo.png"
       alt="PlastiTrack Logo"
       width={164}
       height={164}

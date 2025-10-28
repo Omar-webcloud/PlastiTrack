@@ -11,28 +11,28 @@
       "id": "challenge-bottle",
       "title": "Carry your own water bottle",
       "description": "Avoid buying single-use plastic bottles today",
-      "imageUrl": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx3YXRlciUyMGJvdHRsZXxlbnwwfHx8fDE3NjE1NDI0Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/challenges/challenge-1.jpg",
       "imageHint": "water bottle"
     },
     {
       "id": "challenge-straws",
       "title": "Say no to plastic straws",
       "description": "Use a metal, bamboo, or paper straw instead",
-      "imageUrl": "https://images.unsplash.com/photo-1627278564273-1448362f9f58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxyZXVzYWJsZSUyMHN0cmF3fGVufDB8fHx8MTc2MTYyNTUxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/challenges/challenge-2.jpg",
       "imageHint": "reusable straw"
     },
     {
       "id": "challenge-bag",
       "title": "Bring your own shopping bag",
       "description": "Refuse plastic bag when shopping",
-      "imageUrl": "https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzaG9wcGluZyUyMGJhZ3xlbnwwfHx8fDE3NjE2MjU1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/challenges/challenge-3.jpg",
       "imageHint": "shopping bag"
     },
     {
       "id": "challenge-lunchbox",
       "title": "Pack a lunch in reusable containers",
       "description": "Avoid plastic wraps or takeaway boxes",
-      "imageUrl": "https://images.unsplash.com/photo-1614039649491-3cca3bdc65ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyZXVzYWJsZSUyMGNvbnRhaW5lcnxlbnwwfHx8fDE3NjE2MjU1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "/images/challenges/challenge-4.jpg",
       "imageHint": "reusable container"
     }
   ]

@@ -16,17 +16,19 @@ export default function LoginPage() {
           To continue your eco journey
         </p>
         <form className="space-y-6">
-          <div className="space-y-2">
+          <div className="space-y-2 mb-4">
             <Input id="name" placeholder="Name" className="bg-white rounded-2xl h-14 shadow-md border-none text-base" />
           </div>
           <div className="space-y-2">
             <Input id="password" type="password" placeholder="Password" className="bg-white rounded-2xl h-14 shadow-md border-none text-base" />
           </div>
-          <Link href="/dashboard" passHref>
-            <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-full text-lg">
-              Continue
-            </Button>
-          </Link>
+          <div className="mt-6"> {/* Added top margin to separate form inputs from button */}
+            <Link href="/dashboard" passHref>
+              <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-full text-lg">
+                Continue
+              </Button>
+            </Link>
+          </div>
         </form>
         <div className="flex items-center my-6">
           <span className="mx-auto text-sm text-primary/80">or</span>

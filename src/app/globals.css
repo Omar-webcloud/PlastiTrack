@@ -8,17 +8,17 @@ body {
 
 @layer base {
   :root {
-    --background: 140 10% 95%; /* Light Sage */
+     --background: 140 20% 97%; /* Light Sage */
     --foreground: 142 60% 15%; /* Darker Forest Green for text */
-    --card: 140 10% 99%;
+    --card: 0 0% 100%;
     --card-foreground: 142 60% 15%;
     --popover: 140 10% 99%;
     --popover-foreground: 142 60% 15%;
-    --primary: 142 35% 30%; /* Forest Green */
-    --primary-foreground: 140 10% 99%;
+    --primary: 148 43% 22%; /* Forest Green */
+--primary-foreground: 0 0% 100%;
     --secondary: 140 15% 90%;
     --secondary-foreground: 142 35% 25%;
-    --muted: 140 15% 90%; /* Adjusted from Light Sage for variation */
+    --muted-foreground: 0 0% 45%; /* Adjusted from Light Sage for variation */
     --muted-foreground: 142 25% 45%;
     --accent: 45 84% 52%; /* Mustard Yellow */
     --accent-foreground: 45 90% 15%;
