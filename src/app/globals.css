@@ -8,8 +8,8 @@ body {
 
 @layer base {
   :root {
-    /* --- Light Mode Colors (from PDF UI) --- */
-    --background: 150 30% 97%;          /* very light mint-white background */
+    
+    --background: 106 44% 79%;          /* very light mint-white background */
     --foreground: 150 25% 18%;          /* deep eco green text */
     --card: 150 25% 94%;                /* pale green card */
     --card-foreground: 150 25% 18%;
