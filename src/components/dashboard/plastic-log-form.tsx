@@ -23,6 +23,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Camera, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { LeafIcon } from "../icons";
 
 const formSchema = z.object({
   type: z.string({ required_error: "Please select a plastic type." }),
@@ -60,76 +61,85 @@ export function PlasticLogForm() {
 
     toast({
       title: "Collection Logged!",
-      description: `You've logged ${values.quantity} x ${values.type} (${values.weight} kg).`,
+      description: (
+        <div className="flex items-center gap-2">
+            <LeafIcon className="text-primary"/>
+            <span>You've earned 10 eco points!</span>
+        </div>
+      ),
     });
     
-    document.querySelector('[data-radix-dialog-content] button[aria-label="Close"]')?.click();
+    form.reset();
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-card p-6 rounded-2xl">
-        <FormField
-          control={form.control}
-          name="type"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Plastic Type</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger className="bg-background">
-                    <SelectValue placeholder="Select a type of plastic" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {plasticTypes.map((type) => (
-                    <SelectItem key={type} value={type}>
-                      {type}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
+    <div className="w-full max-w-md mx-auto">
+        <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <div className="bg-primary/10 p-6 rounded-2xl space-y-6">
+            <FormField
             control={form.control}
-            name="quantity"
+            name="type"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Quantity</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="e.g., 5" {...field} className="bg-background" />
-                </FormControl>
+                <FormItem>
+                <FormLabel className="text-primary font-bold">Plastic Type</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                    <SelectTrigger className="bg-white rounded-xl h-14 border-none shadow-sm text-base">
+                        <SelectValue placeholder="Select plastic type" />
+                    </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                    {plasticTypes.map((type) => (
+                        <SelectItem key={type} value={type}>
+                        {type}
+                        </SelectItem>
+                    ))}
+                    </SelectContent>
+                </Select>
                 <FormMessage />
-              </FormItem>
+                </FormItem>
             )}
-          />
-          <FormField
-            control={form.control}
-            name="weight"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Weight (kg)</FormLabel>
-                <FormControl>
-                  <Input type="number" placeholder="e.g., 0.5" {...field} className="bg-background" />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        
-        <Button variant="outline" className="w-full bg-background/70 border-dashed border-primary/50 text-primary/80">
-            <Camera className="mr-2 h-4 w-4" />
-            Upload proof image
-        </Button>
+            />
+            <FormField
+                control={form.control}
+                name="quantity"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel className="text-primary font-bold">Quantity</FormLabel>
+                    <FormControl>
+                    <Input type="number" placeholder="" {...field} className="bg-white rounded-xl h-14 border-none shadow-sm text-base" />
+                    </FormControl>
+                    <FormMessage />
+                </FormItem>
+                )}
+            />
+            <FormField
+                control={form.control}
+                name="weight"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel className="text-primary font-bold">Weight (kg)</FormLabel>
+                    <FormControl>
+                    <Input type="number" placeholder="" {...field} className="bg-white rounded-xl h-14 border-none shadow-sm text-base" />
+                    </FormControl>
+                    <FormMessage />
+                </FormItem>
+                )}
+            />
+            </div>
+            
+            <Button variant="outline" className="w-full h-24 bg-primary/5 border-none flex-col gap-2 text-primary/80 rounded-2xl shadow-sm">
+                <Camera className="h-6 w-6" />
+                <span>Click to upload proof photo</span>
+            </Button>
 
-        <Button type="submit" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90" size="lg">
-            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Submit Log
-        </Button>
-      </form>
-    </Form>
+            <Button type="submit" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full" size="lg">
+                {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                Submit Log
+            </Button>
+        </form>
+        </Form>
+    </div>
   );
 }
