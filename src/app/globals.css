@@ -8,25 +8,25 @@ body {
 
 @layer base {
   :root {
-    /* --- Light Mode Colors (from PDF UI) --- */
+    
     --background: 150 30% 97%;          /* very light mint-white background */
-    --foreground: 150 25% 18%;          /* deep eco green text */
-    --card: 150 25% 94%;                /* pale green card */
-    --card-foreground: 150 25% 18%;
-    --popover: 150 25% 94%;
-    --popover-foreground: 150 25% 18%;
+    --foreground: 106 44% 20%;          /* deep eco green text */
+    --card: 106 44% 79%;                /* pale green card */
+    --card-foreground: 106 44% 20%;
+    --popover: 106 44% 79%;
+    --popover-foreground: 106 44% 20%;
     --primary: 158 45% 35%;             /* main eco green (buttons, highlights) */
     --primary-foreground: 0 0% 100%;
-    --secondary: 150 25% 92%;
-    --secondary-foreground: 150 25% 18%;
-    --muted: 150 20% 90%;
-    --muted-foreground: 150 15% 35%;
+    --secondary: 106 40% 88%;
+    --secondary-foreground: 106 44% 20%;
+    --muted: 106 30% 90%;
+    --muted-foreground: 106 30% 40%;
     --accent: 45 95% 60%;               /* soft yellow-green accent */
     --accent-foreground: 45 100% 10%;
     --destructive: 0 75% 55%;           /* red warning tones */
     --destructive-foreground: 0 0% 98%;
-    --border: 150 20% 85%;
-    --input: 150 20% 85%;
+    --border: 106 44% 79%;
+    --input: 106 44% 79%;
     --ring: 158 45% 35%;
     --radius: 0.75rem;
 
