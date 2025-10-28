@@ -6,91 +6,129 @@ body {
   font-family: 'PT Sans', sans-serif;
 }
 
+/* Updated palette — explicit HEX values tuned to PlastiTrack PDF UI */
 @layer base {
   :root {
-    /* --- Light Mode Colors (from PDF UI) --- */
-    --background: 150 30% 97%;          /* very light mint-white background */
-    --foreground: 150 25% 18%;          /* deep eco green text */
-    --card: 150 25% 94%;                /* pale green card */
-    --card-foreground: 150 25% 18%;
-    --popover: 150 25% 94%;
-    --popover-foreground: 150 25% 18%;
-    --primary: 158 45% 35%;             /* main eco green (buttons, highlights) */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 150 25% 92%;
-    --secondary-foreground: 150 25% 18%;
-    --muted: 150 20% 90%;
-    --muted-foreground: 150 15% 35%;
-    --accent: 45 95% 60%;               /* soft yellow-green accent */
-    --accent-foreground: 45 100% 10%;
-    --destructive: 0 75% 55%;           /* red warning tones */
-    --destructive-foreground: 0 0% 98%;
-    --border: 150 20% 85%;
-    --input: 150 20% 85%;
-    --ring: 158 45% 35%;
+    /* Light mode */
+    --background:  #F6FBF9;  /* hsl(150 40% 97%) — very light mint/ivory */
+    --foreground:  #163926;  /* hsl(150 60% 12%) — deep forest green (primary text) */
+    --card:        #FFFFFF;  /* pure/near white cards */
+    --card-foreground: #163926;
+    --popover:     #F3F9F6;  /* slightly tinted card bg */
+    --popover-foreground: #163926;
+
+    --primary:     #2E7D5A;  /* hsl(150 35% 38%) — main eco green (buttons, highlights) */
+    --primary-foreground: #FFFFFF;
+
+    --secondary:   #E6F4EC;  /* pale green for secondary surfaces */
+    --secondary-foreground: #1E4F3D;
+
+    --muted:       #EAF6F0;  /* very pale green/gray for muted surfaces */
+    --muted-foreground: #6B7F76;
+
+    --accent:      #F2D86A;  /* warm yellow/green accent for badges and highlights */
+    --accent-foreground: #2B2B2B;
+
+    --destructive: #E05B4E;  /* error / destructive (soft red) */
+    --destructive-foreground: #FFFFFF;
+
+    --border:      #E6EFE9;  /* subtle borders */
+    --input:       #EEF7F0;  /* input backgrounds */
+    --ring:        #2E7D5A;  /* focus ring uses primary */
+
+    --chart-1: #2E7D5A;
+    --chart-2: #5EA885;
+    --chart-3: #8FBEAA;
+    --chart-4: #F2D86A;
+    --chart-5: #8BBF9A;
+
     --radius: 0.75rem;
 
-    /* Chart and sidebar UI shades */
-    --chart-1: 158 45% 35%;
-    --chart-2: 158 50% 45%;
-    --chart-3: 150 25% 40%;
-    --chart-4: 45 90% 55%;
-    --chart-5: 130 20% 50%;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 158 45% 25%;
-    --sidebar-primary: 158 45% 35%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 150 25% 92%;
-    --sidebar-accent-foreground: 158 45% 25%;
-    --sidebar-border: 150 20% 85%;
-    --sidebar-ring: 158 45% 35%;
+    /* Sidebar (light) */
+    --sidebar-background: #FFFFFF;
+    --sidebar-foreground: #163926;
+    --sidebar-primary: #2E7D5A;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #E6F4EC;
+    --sidebar-accent-foreground: #163926;
+    --sidebar-border: #E1EAE4;
+    --sidebar-ring: #2E7D5A;
   }
 
   .dark {
-    /* --- Dark Mode Colors --- */
-    --background: 150 20% 10%;          /* dark forest green */
-    --foreground: 150 25% 90%;
-    --card: 150 20% 12%;
-    --card-foreground: 150 25% 90%;
-    --popover: 150 20% 14%;
-    --popover-foreground: 150 25% 90%;
-    --primary: 158 45% 35%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 150 20% 20%;
-    --secondary-foreground: 150 25% 90%;
-    --muted: 150 15% 18%;
-    --muted-foreground: 150 25% 85%;
-    --accent: 45 95% 60%;
-    --accent-foreground: 45 100% 10%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 150 15% 25%;
-    --input: 150 15% 25%;
-    --ring: 158 45% 35%;
+    /* Dark mode */
+    --background:  #0F2B22;  /* deep forest background */
+    --foreground:  #E6F4EC;  /* light mint text */
+    --card:        #0E2A21;  /* slightly lighter than background */
+    --card-foreground: #E6F4EC;
+    --popover:     #0C241C;
+    --popover-foreground: #E6F4EC;
 
-    --chart-1: 158 45% 35%;
-    --chart-2: 158 50% 45%;
-    --chart-3: 150 25% 40%;
-    --chart-4: 45 90% 55%;
-    --chart-5: 130 20% 50%;
+    --primary:     #2E7D5A;  /* keep primary consistent */
+    --primary-foreground: #FFFFFF;
 
-    --sidebar-background: 150 20% 8%;
-    --sidebar-foreground: 150 25% 90%;
-    --sidebar-primary: 158 45% 35%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 150 20% 20%;
-    --sidebar-accent-foreground: 150 25% 90%;
-    --sidebar-border: 150 15% 25%;
-    --sidebar-ring: 158 45% 35%;
+    --secondary:   #123727;  /* dark secondary surfaces */
+    --secondary-foreground: #D8EFE2;
+
+    --muted:       #0C241C;
+    --muted-foreground: #9FBFB0;
+
+    --accent:      #F2D86A;
+    --accent-foreground: #101010;
+
+    --destructive: #C34A3F;
+    --destructive-foreground: #FFFFFF;
+
+    --border:      #143726;
+    --input:       #0E2A21;
+    --ring:        #2E7D5A;
+
+    --chart-1: #2E7D5A;
+    --chart-2: #5EA885;
+    --chart-3: #8FBEAA;
+    --chart-4: #F2D86A;
+    --chart-5: #8BBF9A;
+
+    --sidebar-background: #07201A;
+    --sidebar-foreground: #E6F4EC;
+    --sidebar-primary: #2E7D5A;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #0B2E23;
+    --sidebar-accent-foreground: #E6F4EC;
+    --sidebar-border: #0E372D;
+    --sidebar-ring: #2E7D5A;
   }
 }
 
+/* small utility rules using the vars */
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)];
+  }
+
+  .card {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .badge-accent {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    font-weight: 600;
   }
 }
