@@ -1,4 +1,4 @@
-import { PlastiTrackLogo } from "@/components/icons";
+import { PlastiTrackPngLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,35 +8,31 @@ export default function LoginPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-        <PlastiTrackLogo className="w-20 h-20 text-primary mb-4" />
+        <PlastiTrackPngLogo className="w-24 h-auto" />
       </div>
-      <div className="bg-card p-8 rounded-t-3xl border-t">
-        <h1 className="text-3xl font-bold mb-2 text-center">Log In</h1>
-        <p className="text-muted-foreground text-center mb-8">
-          The first step of your eco journey.
+      <div className="bg-[#BCDEB4] p-8 rounded-t-3xl">
+        <h1 className="text-3xl font-bold mb-2 text-primary">Log In</h1>
+        <p className="text-primary/80 mb-8">
+          To continue your eco journey
         </p>
         <form className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Sarah" className="bg-background" />
+            <Input id="name" placeholder="Name" className="bg-white rounded-2xl h-14 shadow-md border-none text-base" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" className="bg-background" />
+            <Input id="password" type="password" placeholder="Password" className="bg-white rounded-2xl h-14 shadow-md border-none text-base" />
           </div>
           <Link href="/dashboard" passHref>
-            <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-full text-lg">
               Continue
             </Button>
           </Link>
         </form>
         <div className="flex items-center my-6">
-          <div className="flex-grow border-t border-border"></div>
-          <span className="mx-4 text-sm text-muted-foreground">or</span>
-          <div className="flex-grow border-t border-border"></div>
+          <span className="mx-auto text-sm text-primary/80">or</span>
         </div>
         <Link href="/dashboard?guest=true" passHref>
-          <Button variant="secondary" size="lg" className="w-full">
+          <Button variant="default" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 rounded-full text-lg">
             Continue as Guest
           </Button>
         </Link>
