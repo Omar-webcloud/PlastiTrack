@@ -1,4 +1,4 @@
-import { PlastiTrackLogoV2 } from "@/components/icons";
+import { PlastiTrackLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,9 +8,9 @@ export default function LoginPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-        <PlastiTrackLogoV2 className="w-20 h-20 text-primary mb-4" />
+        <PlastiTrackLogo className="w-20 h-20 text-primary mb-4" />
       </div>
-      <div className="bg-muted p-8 rounded-t-3xl">
+      <div className="bg-card p-8 rounded-t-3xl border-t">
         <h1 className="text-3xl font-bold mb-2 text-center">Log In</h1>
         <p className="text-muted-foreground text-center mb-8">
           The first step of your eco journey.
@@ -25,7 +25,7 @@ export default function LoginPage() {
             <Input id="password" type="password" className="bg-background" />
           </div>
           <Link href="/dashboard" passHref>
-            <Button size="lg" className="w-full">
+            <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
               Continue
             </Button>
           </Link>
@@ -35,9 +35,11 @@ export default function LoginPage() {
           <span className="mx-4 text-sm text-muted-foreground">or</span>
           <div className="flex-grow border-t border-border"></div>
         </div>
-        <Button variant="secondary" size="lg" className="w-full">
-          Continue as Guest
-        </Button>
+        <Link href="/dashboard?guest=true" passHref>
+          <Button variant="secondary" size="lg" className="w-full">
+            Continue as Guest
+          </Button>
+        </Link>
       </div>
     </div>
   );

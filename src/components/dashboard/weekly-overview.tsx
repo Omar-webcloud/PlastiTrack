@@ -47,6 +47,7 @@ export function WeeklyOverview() {
                 tickLine={false}
                 tickMargin={10}
                 axisLine={false}
+                stroke="hsl(var(--muted-foreground))"
               />
                <YAxis
                 tickLine={false}

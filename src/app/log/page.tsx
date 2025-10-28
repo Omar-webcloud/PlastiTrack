@@ -3,7 +3,7 @@ import { PlasticLogForm } from "@/components/dashboard/plastic-log-form";
 
 export default function LogPlasticPage() {
     return (
-        <div>
+        <div className="bg-background min-h-screen">
             <AppHeader title="Log Your Plastic" />
             <div className="p-4">
             <p className="text-center text-muted-foreground mb-4">Fill out your recycling entry</p>

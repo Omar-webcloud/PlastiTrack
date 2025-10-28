@@ -10,9 +10,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Roboto', 'Inter', 'sans-serif'],
-        body: ['Roboto', 'Inter', 'sans-serif'],
-        headline: ['Roboto', 'Inter', 'sans-serif'],
+        sans: ['"PT Sans"', 'sans-serif'],
+        body: ['"PT Sans"', 'sans-serif'],
+        headline: ['"PT Sans"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
@@ -71,6 +71,10 @@ export default {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        xl: 'calc(var(--radius) + 4px)',
+        '2xl': 'calc(var(--radius) + 10px)',
+        '3xl': 'calc(var(--radius) + 20px)',
+        full: '9999px',
       },
       keyframes: {
         'accordion-down': {

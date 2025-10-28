@@ -23,7 +23,6 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { Camera, Loader2 } from "lucide-react";
 import { useState } from "react";
-import { DialogClose } from "../ui/dialog";
 
 const formSchema = z.object({
   type: z.string({ required_error: "Please select a plastic type." }),
@@ -64,15 +63,12 @@ export function PlasticLogForm() {
       description: `You've logged ${values.quantity} x ${values.type} (${values.weight} kg).`,
     });
     
-    // This would typically be handled by the dialog's state, but for simplicity
-    // we can close it programmatically if we had access to the `setOpen` function.
-    // For now, let's rely on a manual close or DialogClose button.
     document.querySelector('[data-radix-dialog-content] button[aria-label="Close"]')?.click();
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-muted p-6 rounded-2xl">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-card p-6 rounded-2xl">
         <FormField
           control={form.control}
           name="type"
@@ -126,10 +122,10 @@ export function PlasticLogForm() {
         
         <Button variant="outline" className="w-full bg-background/70 border-dashed border-primary/50 text-primary/80">
             <Camera className="mr-2 h-4 w-4" />
-            Click to upload your photo
+            Upload proof image
         </Button>
 
-        <Button type="submit" disabled={isSubmitting} className="w-full" size="lg">
+        <Button type="submit" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90" size="lg">
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Submit Log
         </Button>

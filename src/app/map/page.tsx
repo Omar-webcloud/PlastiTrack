@@ -3,7 +3,7 @@ import { LocationTracker } from "@/components/dashboard/location-tracker";
 
 export default function MapPage() {
     return (
-        <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen bg-background">
             <AppHeader title="Search Location" />
             <LocationTracker />
         </div>

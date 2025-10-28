@@ -1,52 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-
-const challenges = [
-  {
-    title: "Carry your own water bottle",
-    description: "Avoid buying single-use plastic bottles today",
-    image: "https://picsum.photos/seed/bottle/200/200",
-    hint: "water bottle",
-  },
-  {
-    title: "Say no to plastic straws",
-    description: "Use a metal, bamboo, or paper straw instead",
-    image: "https://picsum.photos/seed/straws/200/200",
-    hint: "reusable straw",
-  },
-  {
-    title: "Bring your own shopping bag",
-    description: "Refuse plastic bag when shopping",
-    image: "https://picsum.photos/seed/bag/200/200",
-    hint: "shopping bag",
-  },
-  {
-    title: "Pack a lunch in reusable containers",
-    description: "Avoid plastic wraps or takeaway boxes",
-    image: "https://picsum.photos/seed/lunchbox/200/200",
-    hint: "reusable container",
-  },
-];
+import { placeholderImages } from '@/lib/placeholder-images';
 
 export function ChallengesList() {
+  const challenges = placeholderImages.filter(p => p.id.startsWith('challenge-'));
+
   return (
     <div className="space-y-4">
       {challenges.map((challenge) => (
-        <Card key={challenge.title} className="rounded-2xl bg-accent/50 border-none shadow-sm">
-          <CardContent className="p-4 flex items-center gap-4">
-            <div className="relative w-20 h-20 rounded-lg overflow-hidden">
+        <Card key={challenge.id} className="rounded-2xl bg-card border-none shadow-sm overflow-hidden">
+          <CardContent className="p-0 flex items-center">
+            <div className="relative w-24 h-24">
                 <Image
-                    src={challenge.image}
-                    alt={challenge.title}
-                    width={80}
-                    height={80}
+                    src={challenge.imageUrl}
+                    alt={challenge.description}
+                    layout="fill"
                     className="object-cover"
-                    data-ai-hint={challenge.hint}
+                    data-ai-hint={challenge.imageHint}
                 />
             </div>
-            <div className="flex-1">
-              <h3 className="font-bold text-accent-foreground">{challenge.title}</h3>
-              <p className="text-sm text-accent-foreground/80">{challenge.description}</p>
+            <div className="p-4 flex-1">
+              <h3 className="font-bold text-card-foreground">{challenge.title}</h3>
+              <p className="text-sm text-muted-foreground">{challenge.description}</p>
             </div>
           </CardContent>
         </Card>

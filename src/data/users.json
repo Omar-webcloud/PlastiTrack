@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Ahmed",
+    "email": "sarahahmed@email.com",
+    "password": "test123",
+    "ecoPoints": 1800,
+    "stats": {
+      "plasticSaved": 4740,
+      "co2Reduced": 1835,
+      "waterSaved": 36000,
+      "peopleJoined": 6010
+    },
+    "badges": ["Plastic Saver", "Water Warrior"],
+    "logs": [],
+    "achievements": [],
+    "preferences": {
+      "darkMode": false
+    }
+  }
+]

@@ -1,4 +1,4 @@
-import { PlastiTrackLogoV2 } from "@/components/icons";
+import { PlastiTrackLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -6,7 +6,7 @@ export default function WelcomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background p-8 text-center">
       <div className="flex flex-col items-center gap-4">
-        <PlastiTrackLogoV2 className="w-32 h-32 text-primary" />
+        <PlastiTrackLogo className="w-32 h-32 text-primary" />
         <h1 className="text-4xl font-bold tracking-tighter">
           Let's turn plastic into opportunity
         </h1>
@@ -17,7 +17,7 @@ export default function WelcomePage() {
       </div>
       <div className="mt-12 w-full max-w-xs">
         <Link href="/login" passHref>
-          <Button size="lg" className="w-full">
+          <Button size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
             Get Started
           </Button>
         </Link>

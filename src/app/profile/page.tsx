@@ -1,26 +1,41 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+'use client';
+import { useSearchParams } from 'next/navigation';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { LogOut, Trash2 } from "lucide-react";
+import users from '@/data/users.json';
+import { placeholderImages } from '@/lib/placeholder-images';
 
 export default function ProfilePage() {
+  const searchParams = useSearchParams();
+  const isGuest = searchParams.get('guest') === 'true';
+  const user = isGuest ? { name: 'Guest', ecoPoints: 0 } : users[0];
+  const profileImage = placeholderImages.find(p => p.id === 'user-avatar');
+
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-background">
       <div className="relative bg-muted h-48">
         <div className="absolute -bottom-12 left-1/2 -translate-x-1/2">
           <Avatar className="w-24 h-24 border-4 border-background">
-            <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-full">
-                <AvatarFallback className="text-4xl bg-primary/20 text-primary">SA</AvatarFallback>
-            </div>
+            {profileImage && !isGuest ? (
+              <AvatarImage src={profileImage.imageUrl} alt={user.name} data-ai-hint={profileImage.imageHint} />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gray-200 rounded-full">
+                <AvatarFallback className="text-4xl bg-primary/20 text-primary">
+                  {user.name.charAt(0).toUpperCase()}
+                </AvatarFallback>
+              </div>
+            )}
           </Avatar>
         </div>
       </div>
       <div className="flex-grow bg-background pt-16 text-center">
-        <h1 className="text-2xl font-bold">Sarah Ahmed</h1>
-        <p className="text-yellow-500 font-semibold">Eco Hero</p>
-        <p className="text-sm text-muted-foreground">12,345 points</p>
+        <h1 className="text-2xl font-bold">{user.name}</h1>
+        <p className="text-accent font-semibold">Eco Hero</p>
+        <p className="text-sm text-muted-foreground">{user.ecoPoints.toLocaleString()} points</p>
       </div>
       <div className="p-4 space-y-4">
         <Card className="rounded-2xl">
