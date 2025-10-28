@@ -3,6 +3,7 @@ import { GlobalImpact } from "@/components/dashboard/global-impact";
 import { WeeklyOverview } from "@/components/dashboard/weekly-overview";
 import { WeeklyOverviewSkeleton } from "@/components/dashboard/weekly-overview-skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Link from "next/link";
 
 export default function DashboardPage() {
   return (
@@ -11,9 +12,15 @@ export default function DashboardPage() {
         <div className="flex justify-center">
             <Tabs defaultValue="insights" className="w-full max-w-sm">
                 <TabsList className="grid w-full grid-cols-3 bg-muted rounded-full">
-                    <TabsTrigger value="insights" className="rounded-full">Insights</TabsTrigger>
-                    <TabsTrigger value="challenges" className="rounded-full">Challenges</TabsTrigger>
-                    <TabsTrigger value="impacts" className="rounded-full">Impacts</TabsTrigger>
+                    <Link href="/dashboard" className="w-full h-full">
+                        <TabsTrigger value="insights" className="rounded-full w-full">Insights</TabsTrigger>
+                    </Link>
+                    <Link href="/challenges" className="w-full h-full">
+                        <TabsTrigger value="challenges" className="rounded-full w-full">Challenges</TabsTrigger>
+                    </Link>
+                    <Link href="/dashboard" className="w-full h-full">
+                        <TabsTrigger value="impacts" className="rounded-full w-full">Impacts</TabsTrigger>
+                    </Link>
                 </TabsList>
             </Tabs>
         </div>

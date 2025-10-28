@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { HomeIcon, MapPinIcon, LeafIcon, AwardIcon, UserIcon } from "./icons";
+import { HomeIcon, MapPinIcon, LeafIcon, AwardIcon, UserIcon, ShieldCheck } from "lucide-react";
 
 const navItems = [
   { href: "/dashboard", icon: HomeIcon, label: "Home" },
   { href: "/map", icon: MapPinIcon, label: "Map" },
   { href: "/log", icon: LeafIcon, label: "Log" },
+  { href: "/challenges", icon: ShieldCheck, label: "Challenges" },
   { href: "/rewards", icon: AwardIcon, label: "Rewards" },
   { href: "/profile", icon: UserIcon, label: "Profile" },
 ];
@@ -16,11 +17,32 @@ const navItems = [
 export function BottomNav() {
   const pathname = usePathname();
 
+  const getNavItems = () => {
+    // A bit of a hack to show the challenges tab as active on the dashboard.
+    if (pathname === '/dashboard' || pathname === '/challenges') {
+      return [
+        { href: "/dashboard", icon: HomeIcon, label: "Home" },
+        { href: "/map", icon: MapPinIcon, label: "Map" },
+        { href: "/log", icon: LeafIcon, label: "Log" },
+        { href: "/rewards", icon: AwardIcon, label: "Rewards" },
+        { href: "/profile", icon: UserIcon, label: "Profile" },
+      ]
+    }
+    return [
+      { href: "/dashboard", icon: HomeIcon, label: "Home" },
+      { href: "/map", icon: MapPinIcon, label: "Map" },
+      { href: "/log", icon: LeafIcon, label: "Log" },
+      { href: "/rewards", icon: AwardIcon, label: "Rewards" },
+      { href: "/profile", icon: UserIcon, label: "Profile" },
+    ];
+  }
+
+
   return (
     <div className="fixed bottom-4 left-4 right-4 bg-background/80 backdrop-blur-sm border border-border/20 shadow-lg rounded-full h-16 z-50 max-w-sm mx-auto">
       <div className="flex justify-around items-center h-full">
         {navItems.map((item) => {
-          const isActive = pathname.startsWith(item.href);
+          const isActive = pathname === item.href || (item.href === '/dashboard' && pathname === '/challenges');
           return (
             <Link href={item.href} key={item.href}>
               <div
