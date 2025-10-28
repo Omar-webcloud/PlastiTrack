@@ -21,22 +21,40 @@ export function BottomNav() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-card/80 backdrop-blur-sm border-t border-border/20 shadow-lg h-20 z-50 rounded-t-3xl">
+    <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-sm border-t shadow-lg h-24 z-50 rounded-t-[30px]">
       <nav className="flex justify-around items-center h-full max-w-lg mx-auto">
         {navItems.map((item) => {
           const isActive = pathname === item.href || 
                            (item.href === '/dashboard' && (pathname === '/challenges' || pathname === '/impacts'));
           
+          if (item.href === '/log') {
+            return (
+              <Link href={item.href} key={item.href} className="-translate-y-8">
+                <div
+                  className={cn(
+                    "flex items-center justify-center w-20 h-20 bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
+                  )}
+                >
+                  <item.icon className="w-8 h-8 text-primary-foreground" />
+                </div>
+              </Link>
+            )
+          }
+
           return (
             <Link href={item.href} key={item.href}>
               <div
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1 transition-all rounded-full w-12 h-12",
-                  "text-muted-foreground",
-                  isActive && (item.href === '/log' ? "bg-primary/10 text-primary" : "text-primary")
+                  "flex flex-col items-center justify-center gap-1 transition-all w-16 h-16",
+                  "text-muted-foreground/80"
                 )}
               >
-                <item.icon className="w-6 h-6" />
+                <div className={cn(
+                  "w-12 h-12 flex items-center justify-center rounded-2xl",
+                  isActive && "bg-primary/10"
+                )}>
+                  <item.icon className={cn("w-6 h-6", isActive && "text-primary")} />
+                </div>
               </div>
             </Link>
           );
