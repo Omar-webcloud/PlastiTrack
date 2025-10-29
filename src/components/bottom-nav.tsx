@@ -32,7 +32,7 @@ export function BottomNav() {
               <Link href={item.href} key={item.href} className="-translate-y-8">
                 <div
                   className={cn(
-                    "flex items-center justify-center w-20 h-20 bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
+                    "flex items-center justify-center w-20 h-20 bg-primary/40 hover:bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
                   )}
                 >
                   <item.icon className="w-8 h-8 text-primary-foreground" />
