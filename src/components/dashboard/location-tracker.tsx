@@ -17,15 +17,6 @@ export function LocationTracker() {
                     className="object-cover"
                     data-ai-hint="map illustration"
                 />
-                 <div className="absolute inset-0 bg-background/30 flex items-center justify-center">
-                    <Card className="bg-background/80 p-4 rounded-lg">
-                        <CardContent className="p-0 text-center">
-                            <p className="text-muted-foreground">
-                                Map service is currently unavailable.
-                            </p>
-                        </CardContent>
-                    </Card>
-                </div>
             </div>
             <div className="p-4 bg-background/90 backdrop-blur-sm rounded-t-3xl shadow-lg -mt-8">
                 <h3 className="font-bold mb-3 text-lg text-primary">Every pin you visit saves plastic</h3>
