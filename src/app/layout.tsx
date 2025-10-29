@@ -3,16 +3,17 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { BottomNav } from "@/components/bottom-nav";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "PlastiTrack",
   description: "Track your plastic consumption and make a positive impact on the environment.",
 };
 
-export default function RootLayout({
+export default function RootLayout({ 
   children,
-}: Readonly<{
-  children: React.ReactNode;
+ }: Readonly<{ 
+  children: React.ReactNode; 
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -29,11 +30,18 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
         )}
       >
-        <div className="relative flex flex-col min-h-screen">
-          <main className="flex-1 pb-24">{children}</main>
-          <BottomNav />
-        </div>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex flex-col min-h-screen">
+            <main className="flex-1 pb-24">{children}</main>
+            <BottomNav />
+          </div>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

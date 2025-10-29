@@ -39,7 +39,7 @@ export function PersonalImpact({ stats }: { stats: any }) {
 
   return (
     <div>
-      <h2 className="text-lg font-bold mb-4 text-foreground/80">Personal Impacts</h2>
+      <h2 className="text-lg font-bold mb-4 text-foreground/80">Your Impacts</h2>
       <div className="grid grid-cols-2 gap-4">
         {impactData.map((item) => (
           <Card key={item.title} className={`${item.bgColor} rounded-2xl shadow-md`}>

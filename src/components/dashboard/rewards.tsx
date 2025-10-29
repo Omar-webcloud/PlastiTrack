@@ -3,13 +3,11 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Banknote, Droplets, Recycle, Trophy, Globe } from "lucide-react";
 import Image from "next/image";
 import users from '@/data/users.json';
 import { useSearchParams } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { BadgeCard } from "./badge-card";
 
 export function Rewards() {
   const searchParams = useSearchParams();
@@ -80,26 +78,7 @@ export function Rewards() {
         <h2 className="text-xl font-bold mb-4 text-card-foreground">Your Badges</h2>
         <div className="grid grid-cols-2 gap-4">
           {rewardsData.badges.map((badge) => (
-            <Card
-              key={badge.id}
-              className={cn(`rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all shadow-md border-none`,
-                badge.unlocked ? "bg-card" : "bg-muted grayscale opacity-60"
-              )}
-            >
-              <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-2", badge.unlocked ? 'bg-background' : 'bg-muted-foreground/20')}>
-                <badge.icon
-                    className={cn(`h-8 w-8`,
-                    badge.unlocked ? "text-card-foreground" : "text-muted-foreground"
-                    )}
-                />
-              </div>
-              <h3 className="font-bold text-base text-card-foreground/90">
-                {badge.name}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {badge.description}
-              </p>
-            </Card>
+            <BadgeCard key={badge.id} {...badge} />
           ))}
         </div>
       </div>

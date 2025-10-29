@@ -1,9 +1,12 @@
+'use client';
 import Image from "next/image";
 import { Settings, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
+import { useTheme } from "next-themes";
 
 export default function ProfilePage() {
+  const { setTheme, theme } = useTheme();
   return (
     <div className="flex flex-col min-h-screen bg-background p-6">
       {/* Settings Icon */}
@@ -35,7 +38,10 @@ export default function ProfilePage() {
       <div className="space-y-4 mt-4">
         <div className="flex items-center justify-between p-4 bg-card rounded-2xl shadow-sm">
           <span>Dark Mode</span>
-          <Switch />
+          <Switch
+            checked={theme === "dark"}
+            onCheckedChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+          />
         </div>
         
         <Button 
