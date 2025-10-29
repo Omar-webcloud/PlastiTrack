@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 export function Rewards() {
   const searchParams = useSearchParams();
   const isGuest = searchParams.get('guest') === 'true';
-  const user = isGuest ? { name: 'Guest', ecoPoints: 0, badges: [] } : users[0];
+  const user = isGuest ? { name: 'Guest', ecoPoints: 0, badges: [] } : users?.[0] || { name: 'Guest', ecoPoints: 0, badges: [] };
 
   const rewardsData = {
     points: user.ecoPoints,
@@ -56,7 +56,7 @@ export function Rewards() {
       <Card className="relative rounded-2xl p-4 overflow-hidden bg-card border-none shadow-md">
         <div className="absolute inset-0">
           <Image
-            src="https://storage.googleapis.com/aai-web-samples/leaf-pattern.svg"
+            src="/leaf-pattern.jpg"
             alt="leaf pattern"
             fill
             className="object-cover opacity-50"
