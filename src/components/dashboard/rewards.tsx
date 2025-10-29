@@ -63,7 +63,7 @@ export function Rewards() {
             data-ai-hint="leaf pattern"
           />
         </div>
-        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-background/10" />
         <CardContent className="relative flex flex-col justify-between h-32 p-2">
           <div>
             <p className="text-sm font-semibold text-card-foreground/90">Eco Points</p>
