@@ -26,16 +26,17 @@ export function BottomNav() {
         {navItems.map((item) => {
           const isActive = pathname === item.href || 
                            (item.href === '/dashboard' && (pathname === '/challenges' || pathname === '/impacts'));
-          
+
           if (item.href === '/log') {
             return (
               <Link href={item.href} key={item.href} className="-translate-y-8">
                 <div
                   className={cn(
-                    "flex items-center justify-center w-20 h-20 bg-primary/40 hover:bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
+                    "flex items-center justify-center w-[4.5rem] h-[4.5rem] bg-primary/40 hover:bg-primary rounded-full shadow-lg transition-transform transform hover:scale-105",
+                    "border border-primary-foreground/20" 
                   )}
                 >
-                  <item.icon className="w-8 h-8 text-primary-foreground" />
+                  <item.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
               </Link>
             )
