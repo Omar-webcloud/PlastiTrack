@@ -2,7 +2,7 @@ import {
   Card,
   CardContent,
 } from "@/components/ui/card";
-import { Recycle, Droplets, Users, Globe } from "lucide-react";
+import { Recycle, Droplets, Globe } from "lucide-react";
 
 type ImpactData = {
   icon: React.ElementType;
@@ -12,33 +12,26 @@ type ImpactData = {
   textColor: string;
 };
 
-export function GlobalImpact() {
+export function PersonalImpact({ stats }: { stats: any }) {
   const impactData: ImpactData[] = [
-  {
-    icon: Recycle,
-    value: "4,740 tons",
-    title: "Plastic Saved",
-    bgColor: "bg-card",
-    textColor: "text-primary",
-  },
-  {
-    icon: Globe,
-    value: "1,835 tons",
-    title: "CO₂ Reduced",
-    bgColor: "bg-card",
-    textColor: "text-primary",
-  },
-  {
-    icon: Droplets,
-    value: "36M L",
-    title: "Water Saved",
-    bgColor: "bg-card",
-    textColor: "text-primary",
-  },
     {
-      icon: Users,
-      value: "6,010,543",
-      title: "Joined",
+      icon: Recycle,
+      value: `${stats.plasticSaved} kg`,
+      title: "Plastic Saved",
+      bgColor: "bg-card",
+      textColor: "text-primary",
+    },
+    {
+      icon: Globe,
+      value: `${stats.co2Reduced} kg`,
+      title: "CO₂ Reduced",
+      bgColor: "bg-card",
+      textColor: "text-primary",
+    },
+    {
+      icon: Droplets,
+      value: `${stats.waterSaved} L`,
+      title: "Water Saved",
       bgColor: "bg-card",
       textColor: "text-primary",
     },
@@ -46,12 +39,12 @@ export function GlobalImpact() {
 
   return (
     <div>
-      <h2 className="text-lg font-bold mb-4 text-foreground/80">Global Impacts</h2>
+      <h2 className="text-lg font-bold mb-4 text-foreground/80">Personal Impacts</h2>
       <div className="grid grid-cols-2 gap-4">
         {impactData.map((item) => (
           <Card key={item.title} className={`${item.bgColor} rounded-2xl shadow-md`}>
             <CardContent className="p-4 flex flex-col items-center justify-center text-center gap-2">
-                <item.icon className={`h-8 w-8 ${item.textColor}`} />
+              <item.icon className={`h-8 w-8 ${item.textColor}`} />
               <div>
                 <div className={`text-xl font-bold text-foreground`}>{item.value}</div>
                 <p className={`text-sm font-medium text-muted-foreground`}>

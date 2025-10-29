@@ -1,14 +1,18 @@
 
 import { Suspense } from "react";
 import { GlobalImpact } from "@/components/dashboard/global-impact";
+import { PersonalImpact } from "@/components/dashboard/personal-impact";
 import { WeeklyOverview } from "@/components/dashboard/weekly-overview";
 import { WeeklyOverviewSkeleton } from "@/components/dashboard/weekly-overview-skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { DashboardHeader } from "@/components/dashboard/dashboard-header";
-
+import users from "@/data/users.json";
+import { GlobalWeeklyOverview } from "@/components/dashboard/global-weekly-overview";
 
 export function DashboardComponent() {
+  const userStats = users[0].stats;
+
   return (
     <div className="flex flex-col bg-background">
       <main className="flex-1 p-6 space-y-6">
@@ -33,7 +37,7 @@ export function DashboardComponent() {
         <GlobalImpact />
 
         <Suspense fallback={<WeeklyOverviewSkeleton />}>
-          <WeeklyOverview />
+          <GlobalWeeklyOverview />
         </Suspense>
 
       </main>

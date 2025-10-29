@@ -1,9 +1,12 @@
-import { WeeklyOverview } from "@/components/dashboard/weekly-overview";
-import { ImpactStats } from "@/components/impact/impact-stats";
+import { PersonalImpact } from "@/components/dashboard/personal-impact";
+import { PersonalWeeklyOverview } from "@/components/dashboard/personal-weekly-overview";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
+import users from "@/data/users.json";
 
 export default function ImpactsPage() {
+  const userStats = users[0].stats;
+
   return (
     <div className="flex flex-col bg-background">
       <main className="flex-1 p-6 space-y-6">
@@ -33,9 +36,9 @@ export default function ImpactsPage() {
             <h1 className="text-3xl font-bold">You have saved 13 plastic items today!</h1>
         </div>
 
-        <WeeklyOverview />
-        
-        <ImpactStats />
+        <PersonalImpact stats={userStats} />
+
+        <PersonalWeeklyOverview />
         
       </main>
     </div>

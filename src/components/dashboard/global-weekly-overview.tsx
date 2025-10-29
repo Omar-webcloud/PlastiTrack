@@ -15,13 +15,13 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-  { day: "Mon", items: 2 },
-  { day: "Tue", items: 3 },
-  { day: "Wed", items: 1 },
-  { day: "Thu", items: 4 },
-  { day: "Fri", items: 2 },
-  { day: "Sat", items: 5 },
-  { day: "Sun", items: 3 },
+  { day: "Mon", items: 200000 },
+  { day: "Tue", items: 300000 },
+  { day: "Wed", items: 100000 },
+  { day: "Thu", items: 400000 },
+  { day: "Fri", items: 200000 },
+  { day: "Sat", items: 500000 },
+  { day: "Sun", items: 300000 },
 ];
 
 const chartConfig = {
@@ -31,11 +31,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function WeeklyOverview() {
+export function GlobalWeeklyOverview() {
   return (
     <Card className="rounded-2xl shadow-md bg-card">
       <CardHeader>
-        <CardTitle className="text-lg text-foreground/80">Weekly Overview</CardTitle>
+        <CardTitle className="text-lg text-foreground/80">Global Weekly Overview</CardTitle>
       </CardHeader>
       <CardContent>
         <div>

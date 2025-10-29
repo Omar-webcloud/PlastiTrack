@@ -31,11 +31,11 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function WeeklyOverview() {
+export function PersonalWeeklyOverview() {
   return (
     <Card className="rounded-2xl shadow-md bg-card">
       <CardHeader>
-        <CardTitle className="text-lg text-foreground/80">Weekly Overview</CardTitle>
+        <CardTitle className="text-lg text-foreground/80">Your Weekly Overview</CardTitle>
       </CardHeader>
       <CardContent>
         <div>
