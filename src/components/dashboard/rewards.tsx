@@ -59,7 +59,7 @@ export function Rewards() {
             src="/leaf-pattern.jpg"
             alt="leaf pattern"
             fill
-            className="object-cover opacity-50"
+            className="object-cover opacity-30"
             data-ai-hint="leaf pattern"
           />
         </div>
