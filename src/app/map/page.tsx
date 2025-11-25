@@ -27,9 +27,7 @@ export default function MapPage() {
             </div>
 
             {/* Legend */}
-            <div className="absolute bottom-4 left-4 z-20 bg-card/80 backdrop-blur-sm p-3 rounded-lg shadow-md">
-                
-            </div>
+            
         </div>
     );
 }
