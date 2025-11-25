@@ -28,16 +28,7 @@ export default function MapPage() {
 
             {/* Legend */}
             <div className="absolute bottom-4 left-4 z-20 bg-card/80 backdrop-blur-sm p-3 rounded-lg shadow-md">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-xs">
-                    <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-[#03A9F4]" />
-                        <span>Recycling Station</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 rounded-full bg-[#795548]" />
-                        <span>Recycle Bin</span>
-                    </div>
-                </div>
+                
             </div>
         </div>
     );
