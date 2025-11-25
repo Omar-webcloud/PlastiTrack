@@ -1,16 +1,23 @@
 import { PlastiTrackPngLogo } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
+    // 1. Added md:items-center and md:justify-center to center everything on desktop
+    <div className="flex flex-col min-h-screen bg-background md:items-center md:justify-center">
+      
+      {/* 2. Added md:flex-none to stop the logo area from pushing the form down on desktop */}
+      {/* Added md:w-full and md:max-w-md to align it with the form width */}
+      <div className="flex-1 md:flex-none flex flex-col items-center justify-center p-8 text-center md:w-full md:max-w-md">
         <PlastiTrackPngLogo className="w-24 h-auto" />
       </div>
-      <div className="bg-[#BCDEB4] p-8 rounded-t-3xl">
+
+      {/* 3. Added w-full and md:max-w-md to stop horizontal stretching */}
+      {/* Added md:rounded-3xl to round the bottom corners on desktop (card look) */}
+      {/* Added md:shadow-xl for better aesthetics on big screens */}
+      <div className="bg-[#BCDEB4] p-8 rounded-t-3xl w-full md:max-w-md md:rounded-3xl md:shadow-xl">
         <h1 className="text-3xl font-bold mb-2 text-primary">Log In</h1>
         <p className="text-primary/80 mb-8">
           To continue your eco journey

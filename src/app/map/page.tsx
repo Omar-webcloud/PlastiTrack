@@ -4,7 +4,7 @@ import MapIllustration from "@/components/map/map-illustration";
 
 export default function MapPage() {
     return (
-        <div className="flex flex-col h-screen bg-background">
+        <div className="flex flex-col h-screen bg-background relative lg:mx-[350px] lg:border-x lg:shadow-2xl">
             {/* Search Bar */}
             <div className="absolute top-4 left-4 right-4 z-20 px-2">
                 <div className="relative">
