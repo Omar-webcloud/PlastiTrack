@@ -24,7 +24,7 @@ PlastiTrack is a web application designed to help users monitor and reduce their
 
 ## Tech Stack
 
-- **Frontend**: React.js (TypeScript)  & TailwindCSS
+- **Frontend**: Next.js (TypeScript)  & TailwindCSS
 - **Deployment**: Deployed on [Vercel](https://vercel.com)  
 
 ---
