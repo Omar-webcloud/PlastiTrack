@@ -8,16 +8,7 @@ import Image from "next/image";
 
 export function LocationTracker() {
     return (
-        <div className="flex-1 flex flex-col relative h-full">
-            <div className="relative flex-1">
-                <Image 
-                    src="/map-illustration.jpg"
-                    alt="Map illustration"
-                    layout="fill"
-                    className="object-cover"
-                    data-ai-hint="map illustration"
-                />
-            </div>
+       
             <div className="p-4 bg-background/90 backdrop-blur-sm rounded-t-3xl shadow-lg -mt-8">
                 <h3 className="font-bold mb-3 text-lg text-primary">Every pin you visit saves plastic</h3>
                 <div className="flex items-center gap-2 text-sm mb-4">
@@ -58,6 +49,6 @@ export function LocationTracker() {
                     </Button>
                 </div>
             </div>
-        </div>
+        
     );
 }
