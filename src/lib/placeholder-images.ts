@@ -34,5 +34,12 @@ export const placeholderImages: ImagePlaceholder[] = [
     description: "Avoid plastic wraps or takeaway boxes",
     imageUrl: "/challenge-4.jpg",
     imageHint: "reusable container"
+  },
+  {
+    id: "challenge-cutlery",
+    title: "Avoid plastic cutlery",
+    description: "Try using metal or wooden cutlery instead",
+    imageUrl: "/challenge-5.jpeg",
+    imageHint: "reusable container"
   }
 ];

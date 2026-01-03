@@ -19,7 +19,7 @@ export function ChallengesList() {
           className="rounded-2xl bg-card border-none shadow-sm overflow-hidden"
         >
           <CardContent className="p-0 flex items-center">
-            <div className="relative w-24 h-24 flex-shrink-0 bg-muted">
+            <div className="relative w-24 h-24 flex-shrink-0 bg-muted rounded-xl overflow-hidden ">
               {!failedImages.has(challenge.id) && (
                 <Image
                   src={challenge.imageUrl}
