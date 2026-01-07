@@ -10,7 +10,7 @@ const LeafletMap = dynamic(() => import('@/components/map/LeafletMap'), {
 
 export default function MapPage() {
     return (
-        <div className="bg-background relative lg:mx-[350px] lg:border-x lg:shadow-2xl">
+        <div className="bg-background relative min-h-screen w-full md:max-w-2xl md:mx-auto md:py-10">
             {/* Search Bar */}
             <div className="sticky top-0 z-20 px-2 py-4 bg-background">
                 <div className="relative">

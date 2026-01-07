@@ -8,7 +8,7 @@ import { useTheme } from "next-themes";
 export default function ProfilePage() {
   const { setTheme, theme } = useTheme();
   return (
-    <div className="flex flex-col min-h-screen bg-background p-6 lg:mx-[350px]">
+    <div className="flex flex-col min-h-screen bg-background p-6 w-full md:max-w-2xl md:mx-auto md:py-10">
       {/* Settings Icon */}
       <div className="flex justify-end mb-8">
         <Settings className="h-6 w-6 text-muted-foreground" />

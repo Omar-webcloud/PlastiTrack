@@ -2,6 +2,7 @@
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface BadgeCardProps {
   name: string;
@@ -12,11 +13,18 @@ interface BadgeCardProps {
 
 export function BadgeCard({ name, description, unlocked, icon: Icon }: BadgeCardProps) {
   return (
-    <Card
-      className={cn(`rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all shadow-md border-none`,
-        unlocked ? "bg-card" : "bg-muted grayscale opacity-60"
-      )}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      style={{ display: "contents" }}
     >
+      <Card
+        className={cn(`rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all shadow-md border-none`,
+          unlocked ? "bg-card" : "bg-muted grayscale opacity-60"
+        )}
+      >
       <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-2", unlocked ? 'bg-background' : 'bg-muted-foreground/20')}>
         <Icon
           className={cn(`h-8 w-8`,
@@ -30,6 +38,7 @@ export function BadgeCard({ name, description, unlocked, icon: Icon }: BadgeCard
       <p className="text-sm text-muted-foreground">
         {description}
       </p>
-    </Card>
+      </Card>
+    </motion.div>
   );
 }

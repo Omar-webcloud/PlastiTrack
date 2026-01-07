@@ -11,7 +11,7 @@ export function RewardsComponent() {
 
     return (
         <div className="bg-background min-h-screen">
-            <main className='p-6 space-y-6'>
+            <main className='p-6 space-y-6 w-full md:max-w-2xl md:mx-auto md:py-10'>
                 <div>
                     <h1 className="text-3xl font-bold">Hi {user.name.split(' ')[0]}!</h1>
                     <p className="text-muted-foreground">Let's see what your plastic-free journey has earned</p>
