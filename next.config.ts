@@ -4,11 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
   },
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
-  },
+  compress: true,
   typescript: {
     ignoreBuildErrors: true,
   },

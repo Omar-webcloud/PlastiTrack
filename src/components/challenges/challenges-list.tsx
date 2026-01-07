@@ -27,7 +27,6 @@ export function ChallengesList() {
                   fill
                   className="object-cover"
                   sizes="96px"
-                  priority
                   onError={() => {
                     setFailedImages(prev => new Set([...prev, challenge.id]));
                   }}
