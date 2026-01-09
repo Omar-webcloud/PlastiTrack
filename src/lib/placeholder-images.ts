@@ -24,13 +24,13 @@ export const placeholderImages: ImagePlaceholder[] = [
   {
     id: "challenge-bag",
     title: "Bring your own shopping bag",
-    description: "Refuse plastic bag when shopping",
+    description: "Refuse plastic bag when out for shopping",
     imageUrl: "/challenge-3.jpg",
     imageHint: "shopping bag"
   },
   {
     id: "challenge-lunchbox",
-    title: "Pack a lunch in reusable containers",
+    title: "Try reusable food containers",
     description: "Avoid plastic wraps or takeaway boxes",
     imageUrl: "/challenge-4.jpg",
     imageHint: "reusable container"
