@@ -9,7 +9,7 @@ export type ImagePlaceholder = {
 export const placeholderImages: ImagePlaceholder[] = [
   {
     id: "challenge-bottle",
-    title: "Carry your own water bottle",
+    title: "Carry your own bottle",
     description: "Avoid buying single-use plastic bottles today",
     imageUrl: "/challenge-1.jpg",
     imageHint: "water bottle"
@@ -23,14 +23,14 @@ export const placeholderImages: ImagePlaceholder[] = [
   },
   {
     id: "challenge-bag",
-    title: "Bring your own shopping bag",
-    description: "Refuse plastic bag when out for shopping",
+    title: "Bring your own bag",
+    description: "Refuse plastic bag when shopping",
     imageUrl: "/challenge-3.jpg",
     imageHint: "shopping bag"
   },
   {
     id: "challenge-lunchbox",
-    title: "Try reusable food containers",
+    title: "Use reusable containers",
     description: "Avoid plastic wraps or takeaway boxes",
     imageUrl: "/challenge-4.jpg",
     imageHint: "reusable container"
