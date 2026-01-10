@@ -8,15 +8,10 @@ export default function ImpactsPage() {
   const userStats = users[0].stats;
 
   return (
-    // 1. Added min-h-screen to ensure the background fills the screen on desktop
+
     <div className="flex flex-col bg-background min-h-screen">
       
-      {/* 2. Responsive Layout Changes:
-        - w-full: Full width on mobile
-        - md:max-w-2xl: Limits width on desktop so charts don't stretch too wide
-        - md:mx-auto: Centers the content column on desktop
-        - md:py-10: Adds extra vertical breathing room on desktop
-      */}
+
       <main className="flex-1 p-6 space-y-6 w-full md:max-w-2xl md:mx-auto md:py-10">
         <div className="flex justify-center">
           <Tabs defaultValue="impacts" className="w-full max-w-sm">
@@ -44,7 +39,7 @@ export default function ImpactsPage() {
             <h1 className="text-3xl font-bold">You have saved 13 plastic items today!</h1>
         </div>
 
-        {/* These components will now fill the container, but stop at max-w-2xl */}
+
         <PersonalImpact stats={userStats} />
 
         <PersonalWeeklyOverview />

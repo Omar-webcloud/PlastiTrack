@@ -3,34 +3,32 @@
 @tailwind utilities;
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 @layer base {
   :root {
-    
-    --background: 150 30% 97%;          /* very light mint-white background */
-    --foreground: 106 44% 20%;          /* deep eco green text */
-    --card: 106 44% 79%;                /* pale green card */
+    --background: 150 30% 97%;
+    --foreground: 106 44% 20%;
+    --card: 106 44% 79%;
     --card-foreground: 106 44% 20%;
     --popover: 106 44% 79%;
     --popover-foreground: 106 44% 20%;
-    --primary: 158 45% 35%;             /* main eco green (buttons, highlights) */
+    --primary: 158 45% 35%;
     --primary-foreground: 0 0% 100%;
     --secondary: 106 40% 88%;
     --secondary-foreground: 106 44% 20%;
     --muted: 106 30% 90%;
     --muted-foreground: 106 30% 40%;
-    --accent: 45 95% 60%;               /* soft yellow-green accent */
+    --accent: 45 95% 60%;
     --accent-foreground: 45 100% 10%;
-    --destructive: 0 75% 55%;           /* red warning tones */
+    --destructive: 0 75% 55%;
     --destructive-foreground: 0 0% 98%;
     --border: 106 44% 79%;
     --input: 106 44% 79%;
     --ring: 158 45% 35%;
     --radius: 0.75rem;
 
-    /* Chart and sidebar UI shades */
     --chart-1: 158 45% 35%;
     --chart-2: 158 50% 45%;
     --chart-3: 150 25% 40%;
@@ -48,8 +46,7 @@ body {
   }
 
   .dark {
-    /* --- Dark Mode Colors --- */
-    --background: 150 20% 10%;          /* dark forest green */
+    --background: 150 20% 10%;
     --foreground: 150 25% 90%;
     --card: 150 20% 12%;
     --card-foreground: 150 25% 90%;

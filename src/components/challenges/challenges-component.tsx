@@ -5,15 +5,10 @@ import { ChallengesHeader } from "@/components/challenges/challenges-header";
 
 export function ChallengesComponent() {
   return (
-    // 1. Added min-h-screen so the background fills the height on desktop
+
     <div className="flex flex-col bg-background min-h-screen">
       
-      {/* 2. Responsive Layout Changes:
-         - w-full: Full width by default
-         - md:max-w-2xl: Limits width on desktop so the list looks like a focused feed
-         - md:mx-auto: Centers the column
-         - md:py-10: Adds vertical spacing on desktop for a cleaner look
-      */}
+
       <main className="flex-1 p-6 space-y-6 w-full md:max-w-2xl md:mx-auto md:py-10">
         <div className="flex justify-center">
           <Tabs defaultValue="challenges" className="w-full max-w-sm">

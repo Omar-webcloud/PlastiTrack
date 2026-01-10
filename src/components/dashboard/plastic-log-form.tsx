@@ -55,7 +55,7 @@ export function PlasticLogForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    // Simulate API call
+
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setIsSubmitting(false);
 

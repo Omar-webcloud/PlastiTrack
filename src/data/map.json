@@ -1,7 +1,0 @@
-[
-  { "id": 1, "type": "Eco shop", "lat": 51.505, "lng": -0.09 },
-  { "id": 2, "type": "Recycling station", "lat": 51.507, "lng": -0.087 },
-  { "id": 3, "type": "Recycle bin", "lat": 51.509, "lng": -0.085 },
-  { "id": 4, "type": "Eco shop", "lat": 51.51, "lng": -0.1 },
-  { "id": 5, "type": "Recycling station", "lat": 51.49, "lng": -0.07 }
-]
