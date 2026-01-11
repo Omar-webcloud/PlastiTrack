@@ -16,7 +16,6 @@ PlastiTrack is a web application designed to help users monitor and reduce their
 
 - ✅ Log plastic use (product, quantity, date)  
 - 📊 Visualize your plastic usage trend with charts  
-- 🔒 (sign up / login)  
 - ♻️ View and manage your plastic-use history  
 
 
@@ -35,8 +34,7 @@ PlastiTrack is a web application designed to help users monitor and reduce their
 
 Make sure you have installed the following:  
 - Node.js (version ≈ 14 or above)  
-- npm or yarn  
-- (If applicable) A running database instance or access to your DB provider  
+- npm or yarn    
 
 ### Installation
 
