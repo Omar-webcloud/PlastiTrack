@@ -1,7 +1,6 @@
 # PlastiTrack
 
 [Live Demo](https://plasti-track.vercel.app/)  
-GitHub Repository: https://github.com/Omar-webcloud/PlastiTrack
 
 
 ---
@@ -14,9 +13,9 @@ PlastiTrack is a web application designed to help users monitor and reduce their
 
 ## Features
 
-- ✅ Log plastic use (product, quantity, date)  
-- 📊 Visualize your plastic usage trend with charts  
-- ♻️ View and manage your plastic-use history  
+-  Log plastic use (product, quantity, date)  
+-  Visualize your plastic usage trend with charts  
+-  View and manage your plastic-use history  
 
 
 ---
