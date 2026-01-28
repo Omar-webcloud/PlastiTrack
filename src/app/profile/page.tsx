@@ -52,11 +52,11 @@ export default function ProfilePage() {
         </Button>
         
         <Button 
-          variant="outline" 
-          className="w-full border-none bg-card hover:bg-card/90 rounded-2xl h-12"
-        >
-          Delete Account
-        </Button>
+  variant="outline"
+  className="w-full border-none bg-card hover:bg-card/90 rounded-2xl h-12 text-red-600"
+>
+  Delete Account
+</Button>
       </div>
     </div>
   );
