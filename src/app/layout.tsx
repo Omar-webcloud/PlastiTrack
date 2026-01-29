@@ -14,21 +14,22 @@ const ptSans = PT_Sans({
 
 export const metadata: Metadata = {
   title: "PlastiTrack",
-  description: "Track your plastic consumption and make a positive impact on the environment.",
+  description:
+    "Track your plastic consumption and make a positive impact on the environment.",
 };
 
-export default function RootLayout({ 
+export default function RootLayout({
   children,
- }: Readonly<{ 
-  children: React.ReactNode; 
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          ptSans.variable
+          "min-h-screen bg-background font-sans antialiased overflow-x-hidden",
+          ptSans.variable,
         )}
       >
         <ThemeProvider
