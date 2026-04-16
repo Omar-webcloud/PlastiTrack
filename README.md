@@ -1,44 +1,43 @@
 # PlastiTrack
 
-[Live Demo](https://plasti-track.vercel.app/)  
+[Live Demo](https://plasti-track.vercel.app/)
 
+## Overview
 
----
+PlastiTrack is a web application for tracking plastic usage and visualizing waste trends through a simple and responsive interface.
 
-## What is PlastiTrack?
+## Key Features
 
-PlastiTrack is a web application designed to help users monitor and reduce their plastic usage or track plastic waste. With an intuitive interface, PlastiTrack allows you to log your plastic-use events, view your progress over time, and receive insights to support sustainable habits.  
-
----
-
-## Features
-
--  Log plastic use (product, quantity, date)  
--  Visualize your plastic usage trend with charts  
--  View and manage your plastic-use history  
-
-
----
+- Log plastic usage with product name, quantity, and date  
+- Track usage trends through interactive charts  
+- View and manage historical records  
+- Responsive layout for desktop and mobile devices  
 
 ## Tech Stack
 
-- **Frontend**: Next.js (TypeScript)  & TailwindCSS
-- **Deployment**: Deployed on [Vercel](https://vercel.com)  
+- Next.js with TypeScript  
+- Tailwind CSS  
+- Chart based data visualization  
+- Vercel for deployment  
 
----
+## Frontend Focus Areas
 
-## Getting Started
+- Component based architecture  
+- Type safe development  
+- Reusable UI components  
+- Data driven interfaces  
+- Accessible and responsive design  
 
-### Prerequisites
+## Local Setup
 
-Make sure you have installed the following:  
-- Node.js (version ≈ 14 or above)  
-- npm or yarn    
+### Requirements
+
+- Node.js version 14 or higher  
+- npm or yarn  
 
 ### Installation
-
-Clone the repository:
 
 ```bash
 git clone https://github.com/Omar-webcloud/PlastiTrack.git
 cd PlastiTrack
+npm install
