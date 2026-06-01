@@ -28,16 +28,3 @@ PlastiTrack is a web application for tracking plastic usage and visualizing wast
 - Data driven interfaces  
 - Accessible and responsive design  
 
-## Local Setup
-
-### Requirements
-
-- Node.js version 14 or higher  
-- npm or yarn  
-
-### Installation
-
-```bash
-git clone https://github.com/Omar-webcloud/PlastiTrack.git
-cd PlastiTrack
-npm install
