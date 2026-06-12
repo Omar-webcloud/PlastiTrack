@@ -1,7 +1,7 @@
 # PlastiTrack
  <img width="200" height="200" alt="plastitrack_logo" src="https://github.com/user-attachments/assets/5e995d30-4647-4927-ad29-d97519c6f127" />
 
-> **Track your plastic. Reduce your footprint. Earn your place on the planet.**
+> **Track your plastic. Reduce your footprint. Earn your place on the planet**
 
 PlastiTrack is an open-source web application that helps individuals and communities take meaningful action against plastic pollution — one log at a time. Users can record what plastic they collect, visualize their environmental impact, discover nearby eco-friendly locations, and earn badges for their efforts.
 
